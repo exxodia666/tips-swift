@@ -1,0 +1,80 @@
+//
+//  TipListModel.swift
+//  TipsSwift
+//
+//  Created by Alexey Olefir on 11.08.2022.
+//
+import Foundation
+import CoreData
+
+class TipListModel {
+    
+    private let container: NSPersistentContainer
+    private let containerName: String = "TipsDataModel"
+    private let entityName: String = "TipsEntity"
+    
+    static let shared = TipListModel()
+    
+    var viewContext: NSManagedObjectContext {
+        return container.viewContext
+    }
+    
+    init() {
+        container = NSPersistentContainer(name: containerName)
+        container.loadPersistentStores { (_, error) in
+            if let error = error {
+                print("Error loading Core Data! \(error)")
+            }
+        }
+    }
+    
+    
+    
+    func add(title: String, description: String) {
+        let entity = TipsEntity(context: viewContext)
+        entity.title = title;
+        entity.descr = description;
+        entity.isChecked = false;
+        entity.id = UUID();
+        save()
+    }
+    
+    func delete(id: NSManagedObjectID) {
+        do {
+            let objectToDelete = try viewContext.existingObject(with: id) as! TipsEntity
+            container.viewContext.delete(objectToDelete)
+            save()
+        } catch {
+            fatalError("Object with this id doesn't exist")
+        }
+    }
+    
+    func toggle(id: NSManagedObjectID) {
+        do {
+            let objectToToggle = try viewContext.existingObject(with: id) as! TipsEntity
+            objectToToggle.isChecked.toggle()
+            save()
+        } catch {
+            fatalError("Object with this id doesn't exist")
+        }
+    }
+    
+    
+    func getTipsList() -> [TipViewModelData] {
+        let request = NSFetchRequest<TipsEntity>(entityName: entityName)
+        do {
+            let result = try viewContext.fetch(request)
+            return result.map { TipViewModelData(tip: $0)}
+        } catch let error {
+            fatalError("Error fetching Entities. \(error)")
+        }
+    }
+    
+    private func save() {
+        do {
+            try viewContext.save()
+        } catch let error {
+            fatalError("Error saving to Core Data. \(error)")
+        }
+    }
+}

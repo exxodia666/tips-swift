@@ -6,14 +6,13 @@
 //
 
 import SwiftUI
+import Combine
 
-struct TodoListScreen: View {
-    @EnvironmentObject var tipState: TipsState
+struct TodoListView: View {
+    
     @State private var showSheet = false
     
-    func onFilterPress() {
-        fatalError("not implemented yet")
-    }
+    @ObservedObject var tipListViewModel = TipListViewModel()
     
     var body: some View {
         NavigationView {
@@ -22,20 +21,25 @@ struct TodoListScreen: View {
                     Header(
                         title: "TODOLIST",
                         onRightPress: {
-                            
                         },
                         iconName: "gearshape"
                     )
                     ScrollView {
-                        TopView(onFilterPress: onFilterPress)
-                        ForEach($tipState.tipsList) { $tip in
+                        TopView(onFilterPress: {})
+                        ForEach(tipListViewModel.tipList) { tip in
                             NavigationLink {
-                                TodoDetailsScreen().navigationBarBackButtonHidden(true)
+                                TodoDetailsScreen(
+                                    tip: tip,
+                                    toggle: {
+                                        tipListViewModel.toggle(id: tip.id)
+                                    })
+                                    .navigationBarBackButtonHidden(true)
                                     .navigationBarHidden(true)
                                     .navigationBarTitle("")
+                                
                             } label: {
-                                Tip(tip: $tip, onRemove: { id in
-                                    tipState.deleteTodo(id: id)
+                                TipComponent(tip: tip, onRemove: {
+                                    tipListViewModel.delete(id: tip.id)
                                 })
                             }.animation(nil)
                         }
@@ -46,7 +50,7 @@ struct TodoListScreen: View {
                     Spacer()
                     HStack {
                         Spacer()
-                        FloatingButton(showSheet: $showSheet)
+                        FloatingButton(showSheet: $showSheet).environmentObject(tipListViewModel)
                     }
                     .padding(.horizontal, 20)
                 }
@@ -58,6 +62,6 @@ struct TodoListScreen: View {
 }
 struct TodoListScreen_Previews: PreviewProvider {
     static var previews: some View {
-        TodoListScreen().environmentObject(TipsState())
+        TodoListView()
     }
 }

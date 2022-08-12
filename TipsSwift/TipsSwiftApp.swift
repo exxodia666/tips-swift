@@ -9,14 +9,9 @@ import SwiftUI
 
 @main
 struct TipsSwiftApp: App {
-    @StateObject private var tipsState = TipsState()
-    @StateObject private var dataController = DataController()
-
     var body: some Scene {
         WindowGroup {
-            TodoListScreen()
-                .environmentObject(tipsState)
-                .environmentObject(dataController)
+            TodoListView()
         }
     }
 }

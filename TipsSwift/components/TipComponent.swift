@@ -7,18 +7,19 @@
 
 import SwiftUI
 
-struct Tip: View {
-    @Binding var tip: TipModel
-    var onRemove: (_ id: UInt) -> Void
+struct TipComponent: View {
+    var tip: TipViewModelData
+    var onRemove: () -> Void
     @State var dragAmount: CGSize = .zero
     
     var body: some View {
+        Spacer()
         ZStack {
             HStack {
                 Spacer()
                 VStack{
                     Button(action: {
-                        onRemove(tip.id)
+                        onRemove()
                     }) {
                         Image(Images.trash.rawValue)
                     }
@@ -27,7 +28,8 @@ struct Tip: View {
                 .padding(.bottom, 20)
             VStack {
                 HStack {
-                    Text(tip.title)
+                    Text(tip.title )
+                        .strikethrough(tip.isChecked)
                         .padding(.horizontal, 16)
                         .font(.custom(Fonts.MontserratMedium.rawValue, size: 16))
                         .foregroundColor(.white)
@@ -37,21 +39,22 @@ struct Tip: View {
                 }
                 .padding(.top, 15)
                 .padding(.bottom, 12)
-                Text(tip.description)
+                Text(tip.descriprion )
+                    .strikethrough(tip.isChecked)
                     .font(.custom(Fonts.Montserrat.rawValue, size: 14)).lineSpacing(10)
                     .foregroundColor(.white)
                     .padding(.horizontal, 16)
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .lineLimit(2)
                     .padding(.bottom, 12)
-                
+
                 Text("Created at 1 Sept 2021")
                     .font(.custom(Fonts.Montserrat.rawValue, size: 11))
                     .foregroundColor(.white)
                     .padding(.horizontal, 16)
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .padding(.bottom, 10)
-                
+
             }.background(
                 RoundedRectangle(cornerRadius: 12)
                     .foregroundColor(.peach)
@@ -79,15 +82,9 @@ struct Tip: View {
 }
 
 struct Tip_Previews: PreviewProvider {
-    
-    @State static var tip: TipModel = TipModel(
-        id: 1,
-        title: "Buy me a coffe",
-        description: "Lorem ipsum description"
-        
-    )
-    
+    @ObservedObject static var tipListViewModel = TipListViewModel()
     static var previews: some View {
-        Tip(tip: $tip, onRemove: { id in })
+        TipComponent(tip: tipListViewModel.tipList.first!) {
+        }
     }
 }

@@ -9,21 +9,29 @@ import SwiftUI
 
 struct TodoDetailsScreen: View {
     @Environment(\.presentationMode) var presentationMode
+    let tip: TipViewModelData
+    let toggle: () -> Void
     
     var body: some View {
         VStack {
-            HeaderGoBack(title: "Header", onGoBackPress: { self.presentationMode.wrappedValue.dismiss()
-            }, iconName: "")
+            HeaderGoBack(
+                title: "Header",
+                onGoBackPress: { self.presentationMode.wrappedValue.dismiss()},
+                onTogglePress: toggle,
+                iconName: ""
+            )
             VStack {
                 HStack {
-                    Text("Design Logo")
+                    Text(tip.title)
+                        .strikethrough(tip.isChecked)
                         .font(.custom(Fonts.BebasNeue.rawValue, size: 26))
                         .padding(.top, 24)
                         .padding(.horizontal, 25)
                     Spacer()
                 }.padding(.bottom, 25)
                 HStack {
-                    Text("Make Ui design for the mini project post figma link to the trello using. Make Ui design for the mini project post figma link to the trello using")
+                    Text(tip.descriprion)
+                        .strikethrough(tip.isChecked)
                         .font(.custom(Fonts.Montserrat.rawValue, size: 14))
                         .lineSpacing(10)
                         .foregroundColor(.dark)
@@ -48,7 +56,8 @@ struct TodoDetailsScreen: View {
 
 
 struct TodoDetailsScreen_Previews: PreviewProvider {
+    @ObservedObject static var tipListViewModel = TipListViewModel()
     static var previews: some View {
-        TodoDetailsScreen()
+        TodoDetailsScreen(tip: tipListViewModel.tipList.first!, toggle: {})
     }
 }
