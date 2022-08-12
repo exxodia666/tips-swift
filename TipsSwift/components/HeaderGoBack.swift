@@ -10,6 +10,7 @@ import SwiftUI
 struct HeaderGoBack: View {
     let title: String
     let onGoBackPress: () -> Void
+    let onTogglePress: () -> Void
     let iconName: String
     
     var body: some View {
@@ -23,7 +24,7 @@ struct HeaderGoBack: View {
             }
             Spacer()
             Button {
-                onGoBackPress()
+                onTogglePress()
             } label: {
                 Image(Images.clock_black.rawValue)
                     .foregroundColor(.dark)
@@ -49,6 +50,6 @@ struct HeaderGoBack: View {
 
 struct HeaderGoBack_Previews: PreviewProvider {
     static var previews: some View {
-        HeaderGoBack(title: "Header", onGoBackPress: {}, iconName: "")
+        HeaderGoBack(title: "Header", onGoBackPress: {}, onTogglePress: {}, iconName: "")
     }
 }

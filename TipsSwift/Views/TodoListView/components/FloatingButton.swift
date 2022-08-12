@@ -9,6 +9,12 @@ import SwiftUI
 
 struct FloatingButton: View {
     @Binding var showSheet: Bool
+    @EnvironmentObject var tipsViewModel: TipListViewModel
+    
+    func addTodo(_ title: String, _ description: String) {
+        tipsViewModel.add(title: title, description: description)
+        showSheet.toggle()
+    }
     
     var body: some View {
         Button {
@@ -27,7 +33,7 @@ struct FloatingButton: View {
                 x: 3,
                 y: 3)
         .sheet(isPresented: $showSheet) {
-            Form()
+            Form(addTodo: addTodo)
         }
     }
 }

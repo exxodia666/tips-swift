@@ -10,9 +10,11 @@ import SwiftUI
 struct Form: View {
     @State private var title = ""
     @State private var description = ""
+    let addTodo: (_ title: String, _ description: String) -> Void
     
-    init() {
+    init(addTodo: @escaping (_ title: String, _ description: String) -> Void) {
         UITextView.appearance().backgroundColor = .clear
+        self.addTodo = addTodo
     }
     
     var body: some View {
@@ -118,7 +120,7 @@ struct Form: View {
                         .padding(.horizontal, 25)
                 )
             Button(action: {
-                
+                addTodo(title, description)
             }, label: {
                 Spacer()
                 Text("ADD TODO")
@@ -148,6 +150,8 @@ struct Form: View {
 
 struct Form_Previews: PreviewProvider {
     static var previews: some View {
-        Form()
+        Form(addTodo: { title,description in
+            print(title)
+        })
     }
 }
