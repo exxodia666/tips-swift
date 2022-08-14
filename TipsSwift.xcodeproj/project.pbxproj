@@ -8,17 +8,17 @@
 
 /* Begin PBXBuildFile section */
 		9614332C28A58835005A4E15 /* TipListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9614332B28A58835005A4E15 /* TipListViewModel.swift */; };
-		9614333028A58D3E005A4E15 /* TipListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9614332F28A58D3E005A4E15 /* TipListModel.swift */; };
 		9614333328A59C51005A4E15 /* TipsDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9614333128A59C51005A4E15 /* TipsDataModel.xcdatamodeld */; };
 		964A3FF72895CAFE00B8AA64 /* TipsSwiftApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964A3FF62895CAFE00B8AA64 /* TipsSwiftApp.swift */; };
 		964A3FF92895CAFE00B8AA64 /* TipListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964A3FF82895CAFE00B8AA64 /* TipListView.swift */; };
 		964A3FFB2895CAFF00B8AA64 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 964A3FFA2895CAFF00B8AA64 /* Assets.xcassets */; };
 		964A3FFE2895CAFF00B8AA64 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 964A3FFD2895CAFF00B8AA64 /* Preview Assets.xcassets */; };
 		964A40272896945200B8AA64 /* TipComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964A40262896945200B8AA64 /* TipComponent.swift */; };
-		964A402C2896ACB000B8AA64 /* TipViewModelData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964A402B2896ACB000B8AA64 /* TipViewModelData.swift */; };
+		964A402C2896ACB000B8AA64 /* TipModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964A402B2896ACB000B8AA64 /* TipModel.swift */; };
 		9693F35228A19E0100434B21 /* ModalButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9693F35128A19E0100434B21 /* ModalButton.swift */; };
 		9693F35528A1A11000434B21 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9693F35428A1A11000434B21 /* Color.swift */; };
 		9693F35728A1A15100434B21 /* TextFieldPlaceholder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9693F35628A1A15100434B21 /* TextFieldPlaceholder.swift */; };
+		96ABDFA628A96C81003E6D84 /* TipListService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96ABDFA528A96C81003E6D84 /* TipListService.swift */; };
 		96C1503128A2E1DE005E5B47 /* TopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96C1503028A2E1DE005E5B47 /* TopView.swift */; };
 		96C1503328A2E3FE005E5B47 /* FloatingButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96C1503228A2E3FE005E5B47 /* FloatingButton.swift */; };
 		96C1503628A2F3E9005E5B47 /* Images.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96C1503528A2F3E9005E5B47 /* Images.swift */; };
@@ -34,7 +34,6 @@
 
 /* Begin PBXFileReference section */
 		9614332B28A58835005A4E15 /* TipListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipListViewModel.swift; sourceTree = "<group>"; };
-		9614332F28A58D3E005A4E15 /* TipListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipListModel.swift; sourceTree = "<group>"; };
 		9614333228A59C51005A4E15 /* TipsDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TipsDataModel.xcdatamodel; sourceTree = "<group>"; };
 		964A3FF32895CAFE00B8AA64 /* TipsSwift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TipsSwift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		964A3FF62895CAFE00B8AA64 /* TipsSwiftApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipsSwiftApp.swift; sourceTree = "<group>"; };
@@ -42,10 +41,11 @@
 		964A3FFA2895CAFF00B8AA64 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		964A3FFD2895CAFF00B8AA64 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		964A40262896945200B8AA64 /* TipComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipComponent.swift; sourceTree = "<group>"; };
-		964A402B2896ACB000B8AA64 /* TipViewModelData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipViewModelData.swift; sourceTree = "<group>"; };
+		964A402B2896ACB000B8AA64 /* TipModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipModel.swift; sourceTree = "<group>"; };
 		9693F35128A19E0100434B21 /* ModalButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalButton.swift; sourceTree = "<group>"; };
 		9693F35428A1A11000434B21 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		9693F35628A1A15100434B21 /* TextFieldPlaceholder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldPlaceholder.swift; sourceTree = "<group>"; };
+		96ABDFA528A96C81003E6D84 /* TipListService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipListService.swift; sourceTree = "<group>"; };
 		96C1503028A2E1DE005E5B47 /* TopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopView.swift; sourceTree = "<group>"; };
 		96C1503228A2E3FE005E5B47 /* FloatingButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloatingButton.swift; sourceTree = "<group>"; };
 		96C1503528A2F3E9005E5B47 /* Images.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Images.swift; sourceTree = "<group>"; };
@@ -90,7 +90,6 @@
 		9614332628A58791005A4E15 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
-				964A402B2896ACB000B8AA64 /* TipViewModelData.swift */,
 				9614332A28A58817005A4E15 /* TipListViewModel */,
 			);
 			path = ViewModels;
@@ -107,7 +106,7 @@
 		962B807D289B124A004A461D /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				9614332F28A58D3E005A4E15 /* TipListModel.swift */,
+				964A402B2896ACB000B8AA64 /* TipModel.swift */,
 				9614333128A59C51005A4E15 /* TipsDataModel.xcdatamodeld */,
 			);
 			path = Models;
@@ -132,6 +131,7 @@
 		964A3FF52895CAFE00B8AA64 /* TipsSwift */ = {
 			isa = PBXGroup;
 			children = (
+				96ABDFA428A96C02003E6D84 /* Services */,
 				9614332628A58791005A4E15 /* ViewModels */,
 				96C1503428A2F3D1005E5B47 /* Assets */,
 				9693F35328A1A0CF00434B21 /* Extensions */,
@@ -173,6 +173,14 @@
 				9693F35628A1A15100434B21 /* TextFieldPlaceholder.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		96ABDFA428A96C02003E6D84 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				96ABDFA528A96C81003E6D84 /* TipListService.swift */,
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 		96C1502F28A2E1B5005E5B47 /* TipListView */ = {
@@ -286,6 +294,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				96F3847A28A0544F0027C434 /* Fonts.swift in Sources */,
+				96ABDFA628A96C81003E6D84 /* TipListService.swift in Sources */,
 				96C1503128A2E1DE005E5B47 /* TopView.swift in Sources */,
 				9693F35728A1A15100434B21 /* TextFieldPlaceholder.swift in Sources */,
 				96C1503628A2F3E9005E5B47 /* Images.swift in Sources */,
@@ -293,14 +302,13 @@
 				96F3847428A017D20027C434 /* TipDetailsView.swift in Sources */,
 				964A3FF92895CAFE00B8AA64 /* TipListView.swift in Sources */,
 				96DB4B04289F001C00571C6C /* Header.swift in Sources */,
-				9614333028A58D3E005A4E15 /* TipListModel.swift in Sources */,
 				964A40272896945200B8AA64 /* TipComponent.swift in Sources */,
 				9614333328A59C51005A4E15 /* TipsDataModel.xcdatamodeld in Sources */,
 				9693F35228A19E0100434B21 /* ModalButton.swift in Sources */,
 				964A3FF72895CAFE00B8AA64 /* TipsSwiftApp.swift in Sources */,
 				96F3847828A04F6F0027C434 /* Form.swift in Sources */,
 				9693F35528A1A11000434B21 /* Color.swift in Sources */,
-				964A402C2896ACB000B8AA64 /* TipViewModelData.swift in Sources */,
+				964A402C2896ACB000B8AA64 /* TipModel.swift in Sources */,
 				96F3847628A018150027C434 /* HeaderGoBack.swift in Sources */,
 				96C1503328A2E3FE005E5B47 /* FloatingButton.swift in Sources */,
 			);

@@ -13,12 +13,16 @@ struct TipDetailsScreen: View {
     @Environment(\.presentationMode) var presentationMode
     @EnvironmentObject var tipsViewModel: TipListViewModel
     
-    var tip: TipViewModelData {
+    var tip: TipModel {
         return tipsViewModel.tipList.first { $0.id == self.id}!
     }
     
     func toggle() {
         tipsViewModel.toggle(id: self.id)
+    }
+    
+    func delete() {
+        tipsViewModel.delete(id: self.id)
     }
     
     var body: some View {
@@ -27,6 +31,7 @@ struct TipDetailsScreen: View {
                 title: "Header",
                 onGoBackPress: { self.presentationMode.wrappedValue.dismiss()},
                 onTogglePress: toggle,
+                onDeletePress: delete,
                 iconName: ""
             )
             VStack {

@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct TipComponent: View {
-    var tip: TipViewModelData
+    var tip: TipModel
     var onRemove: () -> Void
     @State var dragAmount: CGSize = .zero
     

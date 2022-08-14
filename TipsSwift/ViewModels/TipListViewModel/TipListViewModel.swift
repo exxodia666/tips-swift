@@ -14,7 +14,7 @@ class TipListViewModel: ObservableObject {
     
     private let tipListModel = TipListModel()
     
-    @Published var tipList: [TipViewModelData] = []
+    @Published var tipList: [TipModel] = []
     
     init() {
         tipList = tipListModel.getTipsList()

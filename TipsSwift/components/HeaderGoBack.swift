@@ -9,9 +9,11 @@ import SwiftUI
 
 struct HeaderGoBack: View {
     let title: String
+    let iconName: String
     let onGoBackPress: () -> Void
     let onTogglePress: () -> Void
-    let iconName: String
+    let onDeletePress: () -> Void
+
     
     var body: some View {
         HStack {
@@ -26,14 +28,7 @@ struct HeaderGoBack: View {
             Button {
                 onTogglePress()
             } label: {
-                Image(Images.clock_black.rawValue)
-                    .foregroundColor(.dark)
-                    .font(.system(size: 25))
-            }
-            Button {
-                onGoBackPress()
-            } label: {
-                Image(Images.edit.rawValue)
+                Image(systemName: "checkmark.circle.fill")
                     .foregroundColor(.dark)
                     .font(.system(size: 25))
             }
@@ -50,6 +45,12 @@ struct HeaderGoBack: View {
 
 struct HeaderGoBack_Previews: PreviewProvider {
     static var previews: some View {
-        HeaderGoBack(title: "Header", onGoBackPress: {}, onTogglePress: {}, iconName: "")
+        HeaderGoBack(
+            title: "Header",
+            iconName: "",
+            onGoBackPress: {},
+            onTogglePress: {},
+            onDeletePress: {}
+        )
     }
 }
