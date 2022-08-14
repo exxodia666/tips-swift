@@ -11,7 +11,6 @@ import Combine
 struct TipListView: View {
     
     @State private var showSheet = false
-    
     @ObservedObject var tipListViewModel = TipListViewModel()
     
     var body: some View {
