@@ -1,25 +1,29 @@
 //
-//  TipListModel.swift
+//  TipListService.swift
 //  TipsSwift
 //
-//  Created by Alexey Olefir on 11.08.2022.
+//  Created by Alexey Olefir on 14.08.2022.
 //
-import Foundation
-import CoreData
 
-class TipListModel {
+import CoreData
+import Foundation
+
+class TipListService {
     
     private let container: NSPersistentContainer
     private let containerName: String = "TipsDataModel"
     private let entityName: String = "TipsEntity"
     
-    static let shared = TipListModel()
+    static var shared: TipListService = {
+        let instance = TipListService()
+        return instance
+    }()
     
-    var viewContext: NSManagedObjectContext {
+    private var viewContext: NSManagedObjectContext {
         return container.viewContext
     }
     
-    init() {
+    private init() {
         container = NSPersistentContainer(name: containerName)
         container.loadPersistentStores { (_, error) in
             if let error = error {
@@ -27,8 +31,6 @@ class TipListModel {
             }
         }
     }
-    
-    
     
     func add(title: String, description: String) {
         let entity = TipsEntity(context: viewContext)
@@ -60,11 +62,18 @@ class TipListModel {
     }
     
     
-    func getTipsList() -> [TipViewModelData] {
+    func getTipsList() -> [TipModel] {
         let request = NSFetchRequest<TipsEntity>(entityName: entityName)
         do {
             let result = try viewContext.fetch(request)
-            return result.map { TipViewModelData(tip: $0)}
+            return result.map {
+                TipModel(
+                    id: $0.objectID,
+                    title: $0.title!,
+                    descriprion: $0.descr!,
+                    isChecked: $0.isChecked
+                )
+            }
         } catch let error {
             fatalError("Error fetching Entities. \(error)")
         }
@@ -76,5 +85,11 @@ class TipListModel {
         } catch let error {
             fatalError("Error saving to Core Data. \(error)")
         }
+    }
+}
+
+extension TipListService: NSCopying {
+    func copy(with zone: NSZone? = nil) -> Any {
+        return self
     }
 }
