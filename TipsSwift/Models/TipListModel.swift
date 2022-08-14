@@ -41,7 +41,7 @@ class TipListModel {
     
     func delete(id: NSManagedObjectID) {
         do {
-            let objectToDelete = try viewContext.existingObject(with: id) as! TipsEntity
+            let objectToDelete = try viewContext.existingObject(with: id)
             container.viewContext.delete(objectToDelete)
             save()
         } catch {
