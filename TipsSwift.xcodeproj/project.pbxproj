@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		960B29C228AD7DE00078DE14 /* ButtonUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 960B29C128AD7DE00078DE14 /* ButtonUI.swift */; };
 		960B29C428AD7FE50078DE14 /* TextFieldUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 960B29C328AD7FE50078DE14 /* TextFieldUI.swift */; };
-		960B29C728AD842C0078DE14 /* TextFieldType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 960B29C628AD842C0078DE14 /* TextFieldType.swift */; };
 		9614332C28A58835005A4E15 /* TipListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9614332B28A58835005A4E15 /* TipListViewModel.swift */; };
 		9614333328A59C51005A4E15 /* TipsDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9614333128A59C51005A4E15 /* TipsDataModel.xcdatamodeld */; };
 		964A3FF72895CAFE00B8AA64 /* TipsSwiftApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964A3FF62895CAFE00B8AA64 /* TipsSwiftApp.swift */; };
@@ -41,7 +40,6 @@
 /* Begin PBXFileReference section */
 		960B29C128AD7DE00078DE14 /* ButtonUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonUI.swift; sourceTree = "<group>"; };
 		960B29C328AD7FE50078DE14 /* TextFieldUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldUI.swift; sourceTree = "<group>"; };
-		960B29C628AD842C0078DE14 /* TextFieldType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldType.swift; sourceTree = "<group>"; };
 		9614332B28A58835005A4E15 /* TipListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipListViewModel.swift; sourceTree = "<group>"; };
 		9614333228A59C51005A4E15 /* TipsDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TipsDataModel.xcdatamodel; sourceTree = "<group>"; };
 		964A3FF32895CAFE00B8AA64 /* TipsSwift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TipsSwift.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -99,7 +97,6 @@
 		960B29C528AD84100078DE14 /* Enums */ = {
 			isa = PBXGroup;
 			children = (
-				960B29C628AD842C0078DE14 /* TextFieldType.swift */,
 			);
 			path = Enums;
 			sourceTree = "<group>";
@@ -367,7 +364,6 @@
 				9614333328A59C51005A4E15 /* TipsDataModel.xcdatamodeld in Sources */,
 				9693F35228A19E0100434B21 /* ModalButton.swift in Sources */,
 				964A3FF72895CAFE00B8AA64 /* TipsSwiftApp.swift in Sources */,
-				960B29C728AD842C0078DE14 /* TextFieldType.swift in Sources */,
 				96F3847828A04F6F0027C434 /* Form.swift in Sources */,
 				9693F35528A1A11000434B21 /* Color.swift in Sources */,
 				960B29C428AD7FE50078DE14 /* TextFieldUI.swift in Sources */,
