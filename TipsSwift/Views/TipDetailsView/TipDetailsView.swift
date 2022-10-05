@@ -29,10 +29,10 @@ struct TipDetailsScreen: View {
         VStack {
             HeaderGoBack(
                 title: "Header",
+                iconName: "",
                 onGoBackPress: { self.presentationMode.wrappedValue.dismiss()},
                 onTogglePress: toggle,
-                onDeletePress: delete,
-                iconName: ""
+                onDeletePress: delete
             )
             VStack {
                 HStack {
