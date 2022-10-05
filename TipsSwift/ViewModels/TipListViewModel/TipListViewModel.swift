@@ -12,7 +12,7 @@ import CoreData
 
 class TipListViewModel: ObservableObject {
     
-    private let tipListModel = TipListModel()
+    private let tipListModel = TipListService.shared
     
     @Published var tipList: [TipModel] = []
     
