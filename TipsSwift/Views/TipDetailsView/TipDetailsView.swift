@@ -27,13 +27,15 @@ struct TipDetailsScreen: View {
     
     var body: some View {
         VStack {
-            HeaderGoBack(
+            HeaderGoBackWithButtons(
                 title: "Header",
-                iconName: "",
-                onGoBackPress: { self.presentationMode.wrappedValue.dismiss()},
-                onTogglePress: toggle,
-                onDeletePress: delete
-            )
+                iconName: "") {
+                    self.presentationMode.wrappedValue.dismiss()
+                } onTogglePress: {
+                    toggle()
+                } onDeletePress: {
+                    delete()
+                }
             VStack {
                 HStack {
                     Text(tip.title)

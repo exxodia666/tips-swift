@@ -11,10 +11,13 @@ struct LoginView: View {
     @State var email = ""
     @State var password = ""
     @State var confirmation = ""
-
+    @Environment(\.presentationMode) var presentationMode
+    
     var body: some View {
         VStack {
-            Spacer()
+            HeaderGoBack {
+                presentationMode.wrappedValue.dismiss()
+            }
             Spacer()
             Image("LaunchScreenImage")
             Spacer()
@@ -26,7 +29,7 @@ struct LoginView: View {
                 value: $password,
                 label: "Password"
             )
-            ButtonUI(title: "SIGN UP") {
+            ButtonUI(title: "SIGN IN") {
                 
             }
             HStack {
@@ -35,16 +38,13 @@ struct LoginView: View {
                     .font(.custom(Fonts.Montserrat.rawValue, size: 12))
                     .opacity(0.4)
                 Button {
-                    
+                    presentationMode.wrappedValue.dismiss()
                 } label: {
                     Text("Sign up")
                         .foregroundColor(.light_peach)
                         .font(.custom(Fonts.Montserrat.rawValue, size: 12))
                 }
-                
-                
             }
-            
         }
     }
 }

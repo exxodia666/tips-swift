@@ -12,45 +12,47 @@ struct RegisterView: View {
     @State var email = ""
     @State var password = ""
     @State var confirmation = ""
+    @Environment(\.presentationMode) var presentationMode
     
     var body: some View {
-        VStack {
-            Spacer()
-            Spacer()
-            Image("LaunchScreenImage")
-            Spacer()
-            TextFieldUI(
-                label: "Email",
-                value: $email
-            )
-            SecureFieldUI(
-                value: $password,
-                label: "Password"
-            )
-            SecureFieldUI(
-                value: $confirmation,
-                label: "Confirmation"
-                
-            )
-            ButtonUI(title: "SIGN UP") {
-                
-            }
-            HStack {
-                Text("Have an account?")
-                    .foregroundColor(.dark)
-                    .font(.custom(Fonts.Montserrat.rawValue, size: 12))
-                    .opacity(0.4)
-                Button {
+        NavigationView {
+            VStack {
+                Spacer()
+                Spacer()
+                Image("LaunchScreenImage")
+                Spacer()
+                TextFieldUI(
+                    label: "Email",
+                    value: $email
+                )
+                SecureFieldUI(
+                    value: $password,
+                    label: "Password"
+                )
+                SecureFieldUI(
+                    value: $confirmation,
+                    label: "Confirmation"
                     
-                } label: {
-                    Text("Log in")
-                        .foregroundColor(.light_peach)
-                        .font(.custom(Fonts.Montserrat.rawValue, size: 12))
+                )
+                ButtonUI(title: "SIGN UP") {
+                    
                 }
-                
-                
+                HStack {
+                    Text("Have an account?")
+                        .foregroundColor(.dark)
+                        .font(.custom(Fonts.Montserrat.rawValue, size: 12))
+                        .opacity(0.4)
+                    NavigationLink {
+                        LoginView()
+                            .navigationBarHidden(true)
+                            .navigationTitle("")
+                    } label: {
+                        Text("Log in")
+                            .foregroundColor(.light_peach)
+                            .font(.custom(Fonts.Montserrat.rawValue, size: 12))
+                    }.animation(nil)
+                }
             }
-            
         }
     }
 }
