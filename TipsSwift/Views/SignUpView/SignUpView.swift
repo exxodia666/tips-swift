@@ -7,12 +7,22 @@
 
 import SwiftUI
 
-struct RegisterView: View {
+struct SignUpView: View {
     
     @State var email = ""
     @State var password = ""
     @State var confirmation = ""
     @Environment(\.presentationMode) var presentationMode
+    
+    var disabled: Bool {
+        email.isEmpty || password.isEmpty
+    }
+    
+    func submit() {
+        print(email)
+        print(password)
+        print(email)
+    }
     
     var body: some View {
         NavigationView {
@@ -23,31 +33,35 @@ struct RegisterView: View {
                 Spacer()
                 TextFieldUI(
                     label: "Email",
-                    value: $email
+                    value: $email,
+                    textColor: .dark
                 )
                 SecureFieldUI(
+                    label: "Password",
                     value: $password,
-                    label: "Password"
+                    textColor: .dark
                 )
                 SecureFieldUI(
+                    label: "Confirmation",
                     value: $confirmation,
-                    label: "Confirmation"
-                    
+                    textColor: .dark
                 )
-                ButtonUI(title: "SIGN UP") {
-                    
-                }
+                ButtonUI(
+                    title: "SIGN UP",
+                    onPress: submit,
+                    disabled: disabled
+                )
                 HStack {
                     Text("Have an account?")
                         .foregroundColor(.dark)
                         .font(.custom(Fonts.Montserrat.rawValue, size: 12))
                         .opacity(0.4)
                     NavigationLink {
-                        LoginView()
+                        SignInView()
                             .navigationBarHidden(true)
                             .navigationTitle("")
                     } label: {
-                        Text("Log in")
+                        Text("Sign in")
                             .foregroundColor(.light_peach)
                             .font(.custom(Fonts.Montserrat.rawValue, size: 12))
                     }.animation(nil)
@@ -57,8 +71,8 @@ struct RegisterView: View {
     }
 }
 
-struct RegisterView_Previews: PreviewProvider {
+struct SignUp_Previews: PreviewProvider {
     static var previews: some View {
-        RegisterView()
+        SignUpView()
     }
 }

@@ -15,7 +15,7 @@ struct ContenView: View {
         if viewModel.user != nil {
             TipListView()
         } else {
-            RegisterView()
+            SignUpView()
         }
     }
 }

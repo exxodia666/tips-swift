@@ -7,17 +7,19 @@
 
 import SwiftUI
 
-struct LoginView: View {
+struct SignInView: View {
     @State var email = ""
     @State var password = ""
-    @State var confirmation = ""
     @Environment(\.presentationMode) var presentationMode
     
+    func submit() {
+        print(email)
+        print(password)
+    }
     var body: some View {
         VStack {
-            HeaderGoBack {
-                presentationMode.wrappedValue.dismiss()
-            }
+            HeaderGoBack { presentationMode.wrappedValue.dismiss() }
+            Spacer()
             Spacer()
             Image("LaunchScreenImage")
             Spacer()
@@ -26,12 +28,10 @@ struct LoginView: View {
                 value: $email
             )
             SecureFieldUI(
-                value: $password,
-                label: "Password"
+                label: "Password",
+                value: $password
             )
-            ButtonUI(title: "SIGN IN") {
-                
-            }
+            ButtonUI(title: "SIGN IN", onPress: submit, disabled: true)
             HStack {
                 Text("Don't have an account?")
                     .foregroundColor(.dark)
@@ -49,8 +49,8 @@ struct LoginView: View {
     }
 }
 
-struct LoginView_Previews: PreviewProvider {
+struct SignInView_Previews: PreviewProvider {
     static var previews: some View {
-        LoginView()
+        SignInView()
     }
 }

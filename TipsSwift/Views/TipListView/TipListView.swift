@@ -9,7 +9,6 @@ import SwiftUI
 import Combine
 
 struct TipListView: View {
-    
     @State private var showSheet = false
     @ObservedObject var tipListViewModel = TipListViewModel()
     
@@ -37,7 +36,6 @@ struct TipListView: View {
                             }.animation(nil)
                         }
                     }
-                    
                 }
                 VStack {
                     Spacer()

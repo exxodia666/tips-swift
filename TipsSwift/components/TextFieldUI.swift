@@ -10,10 +10,12 @@ import SwiftUI
 struct TextFieldUI: View {
     let label: String
     @Binding var value: String
+    let textColor: Color?
     
-    init(label: String, value: Binding<String>) {
+    init(label: String, value: Binding<String>, textColor: Color? = .white) {
         self.label = label
         self._value = value
+        self.textColor = textColor
     }
     
     func clearField(){
@@ -32,7 +34,7 @@ struct TextFieldUI: View {
                         .font(.custom(Fonts.Montserrat.rawValue, size: 16))
                         .opacity(0.5)
                 }
-                .foregroundColor(.white)
+                .foregroundColor(textColor)
                 .frame(
                     height: 48.0,
                     alignment: .center
@@ -40,11 +42,13 @@ struct TextFieldUI: View {
                 .padding(.horizontal, 45)
             Spacer()
             Button {
-                clearField()
+                if !value.isEmpty{
+                    clearField()
+                }
             } label: {
                 Image(systemName: "xmark")
                     .accentColor(Color.red)
-                    .opacity(value.isEmpty ? 1 : 0 )
+                    .opacity(!value.isEmpty ? 1 : 0 )
                     .frame(width: 48, height: 48)
             }
         }.padding(.trailing, 25)

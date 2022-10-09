@@ -14,7 +14,6 @@ struct HeaderGoBackWithButtons: View {
     let onTogglePress: () -> Void
     let onDeletePress: () -> Void
 
-    
     var body: some View {
         HStack {
             Button {
