@@ -18,7 +18,9 @@ struct TipListView: View {
                 VStack {
                     Header(
                         title: "TODOLIST",
-                        onRightPress: {},
+                        onRightPress: {
+                            
+                        },
                         iconName: "gearshape"
                     )
                     ScrollView {

@@ -18,8 +18,8 @@ struct Header: View {
                 .foregroundColor(.light_peach)
                 .font(.custom(Fonts.BebasNeue.rawValue, size: 25.0))
             Spacer()
-            Button {
-                onRightPress()
+            NavigationLink {
+                ProfileView()
             } label: {
                 Image(systemName: iconName)
                     .foregroundColor(.dark)

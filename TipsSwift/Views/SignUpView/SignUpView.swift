@@ -8,21 +8,8 @@
 import SwiftUI
 
 struct SignUpView: View {
-    
-    @State var email = ""
-    @State var password = ""
-    @State var confirmation = ""
+    @StateObject private var viewModel = SignUpViewModel()
     @Environment(\.presentationMode) var presentationMode
-    
-    var disabled: Bool {
-        email.isEmpty || password.isEmpty
-    }
-    
-    func submit() {
-        print(email)
-        print(password)
-        print(email)
-    }
     
     var body: some View {
         NavigationView {
@@ -33,23 +20,23 @@ struct SignUpView: View {
                 Spacer()
                 TextFieldUI(
                     label: "Email",
-                    value: $email,
+                    value: $viewModel.email,
                     textColor: .dark
                 )
                 SecureFieldUI(
                     label: "Password",
-                    value: $password,
+                    value: $viewModel.password,
                     textColor: .dark
                 )
                 SecureFieldUI(
                     label: "Confirmation",
-                    value: $confirmation,
+                    value: $viewModel.confirmation,
                     textColor: .dark
                 )
                 ButtonUI(
                     title: "SIGN UP",
-                    onPress: submit,
-                    disabled: disabled
+                    onPress: viewModel.signUp,
+                    disabled: viewModel.disabled
                 )
                 HStack {
                     Text("Have an account?")
