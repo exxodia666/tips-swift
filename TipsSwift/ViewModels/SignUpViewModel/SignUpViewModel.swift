@@ -15,14 +15,13 @@ class SignUpViewModel: ObservableObject {
     @Published var password: String = ""
     @Published var confirmation: String = ""
     
-    @Published var isLoading: Bool = false
-    
     var disabled: Bool {
         email.isEmpty || password.isEmpty
     }
     
     @Published var user: User?
     @Published var errorMessage: String = ""
+    @Published var isLoading: Bool = false
     
     private var cancellable = Set<AnyCancellable>()
     
@@ -36,10 +35,13 @@ class SignUpViewModel: ObservableObject {
         authService.errorMessage.sink { errMsg in
             self.errorMessage = errMsg
         }.store(in: &cancellable)
+        
+        authService.isLoading.sink { isLoading in
+            self.isLoading = isLoading
+        }.store(in: &cancellable)
     }
     
     func signUp() {
-        print(email, password)
         authService.signUp(email: email, password: password)
     }
     

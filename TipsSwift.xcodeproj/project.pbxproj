@@ -32,6 +32,7 @@
 		9693F35228A19E0100434B21 /* ModalButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9693F35128A19E0100434B21 /* ModalButton.swift */; };
 		9693F35528A1A11000434B21 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9693F35428A1A11000434B21 /* Color.swift */; };
 		9693F35728A1A15100434B21 /* TextFieldPlaceholder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9693F35628A1A15100434B21 /* TextFieldPlaceholder.swift */; };
+		96A0A17D28F4C0EA00DF8F65 /* ServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96A0A17C28F4C0EA00DF8F65 /* ServiceProtocol.swift */; };
 		96A24D2328F0BC760036F9DD /* FirebaseAuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96A24D2228F0BC760036F9DD /* FirebaseAuthService.swift */; };
 		96A24D2528F0BD700036F9DD /* AuthServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96A24D2428F0BD700036F9DD /* AuthServiceProtocol.swift */; };
 		96ABDFA628A96C81003E6D84 /* TipListService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96ABDFA528A96C81003E6D84 /* TipListService.swift */; };
@@ -73,6 +74,7 @@
 		9693F35128A19E0100434B21 /* ModalButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalButton.swift; sourceTree = "<group>"; };
 		9693F35428A1A11000434B21 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		9693F35628A1A15100434B21 /* TextFieldPlaceholder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldPlaceholder.swift; sourceTree = "<group>"; };
+		96A0A17C28F4C0EA00DF8F65 /* ServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceProtocol.swift; sourceTree = "<group>"; };
 		96A24D2228F0BC760036F9DD /* FirebaseAuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseAuthService.swift; sourceTree = "<group>"; };
 		96A24D2428F0BD700036F9DD /* AuthServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthServiceProtocol.swift; sourceTree = "<group>"; };
 		96ABDFA528A96C81003E6D84 /* TipListService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipListService.swift; sourceTree = "<group>"; };
@@ -271,6 +273,7 @@
 		96A24D2628F0C2CF0036F9DD /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
+				96A0A17C28F4C0EA00DF8F65 /* ServiceProtocol.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -461,6 +464,7 @@
 				9677B2C428F189B700497D67 /* ContentView.swift in Sources */,
 				96DE61F528F36F8C00B56EE3 /* SignUpViewModel.swift in Sources */,
 				9614333328A59C51005A4E15 /* TipsDataModel.xcdatamodeld in Sources */,
+				96A0A17D28F4C0EA00DF8F65 /* ServiceProtocol.swift in Sources */,
 				9693F35228A19E0100434B21 /* ModalButton.swift in Sources */,
 				96A24D2328F0BC760036F9DD /* FirebaseAuthService.swift in Sources */,
 				964A3FF72895CAFE00B8AA64 /* TipsSwiftApp.swift in Sources */,

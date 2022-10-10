@@ -8,9 +8,8 @@ import Combine
 import Foundation
 import FirebaseAuth
 
-protocol AuthServiceProtocol {
+protocol AuthServiceProtocol : ServiceProtocol {
     var user: CurrentValueSubject<User?, Never> {get}
-    var errorMessage: PassthroughSubject<String, Never> {get}
     
     func signUp(email: String, password: String)
     func signIn(email: String, password: String)
