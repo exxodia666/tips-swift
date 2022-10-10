@@ -36,10 +36,13 @@ class SignInViewModel: ObservableObject {
         authService.errorMessage.sink { errMsg in
             self.errorMessage = errMsg
         }.store(in: &cancellable)
+        
+        authService.isLoading.sink { isLoading in
+            self.isLoading = isLoading
+        }.store(in: &cancellable)
     }
     
     func signIn() {
-        print(email, password)
         authService.signIn(email: email, password: password)
     }
     
