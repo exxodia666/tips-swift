@@ -11,11 +11,12 @@ import FirebaseAuth
 class FirebaseAuthService: AuthServiceProtocol {
     var user = CurrentValueSubject<User?, Never>(nil)
     var errorMessage = PassthroughSubject<String, Never>()
+    
     static let shared = FirebaseAuthService()
     
     var isLoading = CurrentValueSubject<Bool, Never>(false)
     
-    init() {
+    private init() {
         Auth.auth().addStateDidChangeListener { [weak self] _, user in
             guard let strongSelf = self else { return }
             strongSelf.user.value = user
