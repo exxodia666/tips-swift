@@ -8,9 +8,16 @@
 import SwiftUI
 
 struct SecureFieldUI: View {
-    @State var isShown: Bool = false
+    @State private var isShown: Bool = false
     @Binding var value: String
     let label: String
+    let textColor: Color?
+    
+    init(label: String, value: Binding<String>, textColor: Color? = .white) {
+        self.label = label
+        self._value = value
+        self.textColor = textColor
+    }
     
     var body: some View {
         HStack {
@@ -28,15 +35,21 @@ struct SecureFieldUI: View {
                         .font(.custom(Fonts.Montserrat.rawValue, size: 16))
                         .opacity(0.5)
                 }
-                .foregroundColor(.white)
+                .foregroundColor(textColor)
                 .frame(
                     height: 48.0,
                     alignment: .center
                 )
                 .padding(.horizontal, 45)
             Spacer()
-            Image(systemName: isShown ? "eye" : "eye.slash")
-                .frame(width: 48, height: 48)
+            Button {
+                isShown.toggle()
+            } label: {
+                Image(systemName: isShown ? "eye" : "eye.slash")
+                    .frame(width: 48, height: 48)
+            }
+
+            
         }.padding(.trailing, 25)
             .frame(height: 48)
             .overlay(
@@ -55,8 +68,8 @@ struct SecureFieldUI_Previews: PreviewProvider {
     @State static var text: String = ""
     static var previews: some View {
         SecureFieldUI(
-            value: $text,
-            label: "Email"
+            label: "Email",
+            value: $text
         )
     }
 }
