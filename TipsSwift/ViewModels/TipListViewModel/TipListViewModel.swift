@@ -5,33 +5,32 @@
 //  Created by Alexey Olefir on 11.08.2022.
 //
 
-import Foundation
 import Combine
 import SwiftUI
 import CoreData
+import Foundation
 
 class TipListViewModel: ObservableObject {
+    @Published var tips: [TipModel] = []
     
-    private let tipListModel = TipListService.shared
+    @Published var isLoading: Bool = false
+    @Published var errorMessage: String?
+
+    private let tipsService: TipsServiceProtocol
+    private var cancellable = Set<AnyCancellable>()
     
-    @Published var tipList: [TipModel] = []
-    
-    init() {
-        tipList = tipListModel.getTipsList()
-    }
-    
-    func add(title: String, description: String) {
-        tipListModel.add(title: title, description: description)
-        tipList = tipListModel.getTipsList()
-    }
-    
-    func delete(id: NSManagedObjectID) {
-        tipListModel.delete(id: id)
-        tipList = tipListModel.getTipsList()
-    }
-    
-    func toggle(id: NSManagedObjectID) {
-        tipListModel.toggle(id: id)
-        tipList = tipListModel.getTipsList()
+    init(tipsService: TipsServiceProtocol = TipsService.shared) {
+        self.tipsService = tipsService
+        tipsService.tips.sink { tips in
+            self.tips = tips
+        }.store(in: &cancellable)
+        
+        tipsService.isLoading.sink { isLoading in
+            self.isLoading = isLoading
+        }.store(in: &cancellable)
+        
+        tipsService.errorMessage.sink { errorMessage in
+            self.errorMessage = errorMessage
+        }.store(in: &cancellable)
     }
 }
