@@ -8,17 +8,15 @@
 import SwiftUI
 
 struct FloatingButton: View {
-    @Binding var showSheet: Bool
-    @EnvironmentObject var tipsViewModel: TipListViewModel
+    @State private var isSheetShown: Bool = false
     
-    func addTodo(_ title: String, _ description: String) {
-        tipsViewModel.add(title: title, description: description)
-        showSheet.toggle()
+    func showSheet() {
+        isSheetShown.toggle()
     }
     
     var body: some View {
         Button {
-            showSheet.toggle()
+            isSheetShown.toggle()
         } label: {
             Image(systemName: "plus")
                 .font(.system(size: 24))
@@ -32,8 +30,8 @@ struct FloatingButton: View {
                 radius: 3,
                 x: 3,
                 y: 3)
-        .sheet(isPresented: $showSheet) {
-            Form(addTodo: addTodo)
+        .sheet(isPresented: $isSheetShown) {
+            Form(showSheet: showSheet)
         }
     }
 }
@@ -41,6 +39,6 @@ struct FloatingButton: View {
 struct FloatingButton_Previews: PreviewProvider {
     @State static private var isShown = false
     static var previews: some View {
-        FloatingButton(showSheet: $isShown)
+        FloatingButton()
     }
 }

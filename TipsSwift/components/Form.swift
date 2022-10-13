@@ -8,13 +8,11 @@
 import SwiftUI
 
 struct Form: View {
-    @State private var title = ""
-    @State private var description = ""
-    let addTodo: (_ title: String, _ description: String) -> Void
-    
-    init(addTodo: @escaping (_ title: String, _ description: String) -> Void) {
+    @StateObject private var createTipViewModel: CreateTipViewModel = CreateTipViewModel()
+    let showSheet: () -> Void
+    init(showSheet: @escaping () -> Void) {
         UITextView.appearance().backgroundColor = .clear
-        self.addTodo = addTodo
+        self.showSheet = showSheet
     }
     
     var body: some View {
@@ -33,9 +31,9 @@ struct Form: View {
                 .padding(.bottom, 16)
             TextField(
                 "",
-                text: $title
+                text: $createTipViewModel.title
             )
-                .placeholder(when: title.isEmpty) {
+                .placeholder(when: createTipViewModel.title.isEmpty) {
                     Text("Title")
                         .foregroundColor(.white)
                         .font(.custom(Fonts.Montserrat.rawValue, size: 16))
@@ -53,12 +51,12 @@ struct Form: View {
                 )
             ZStack {
                 TextEditor(
-                    text: $description
+                    text: $createTipViewModel.description
                 )
                     .padding(.top, 5)
                 VStack {
                     HStack {
-                        Text(description.isEmpty ? "Description" : "")
+                        Text(createTipViewModel.description.isEmpty ? "Description" : "")
                             .foregroundColor(.white)
                             .font(.custom(Fonts.Montserrat.rawValue, size: 16))
                             .padding(.top, 15)
@@ -81,9 +79,9 @@ struct Form: View {
             )
             TextField(
                 "",
-                text: $title
+                text: $createTipViewModel.image
             )
-                .placeholder(when: title.isEmpty) {
+                .placeholder(when: createTipViewModel.image.isEmpty) {
                     Text("Add Image (Optional)")
                         .foregroundColor(.white)
                         .font(.custom(Fonts.Montserrat.rawValue, size: 16))
@@ -99,28 +97,29 @@ struct Form: View {
                         .strokeBorder(.white, lineWidth: 2)
                         .padding(.horizontal, 25)
                 )
-            TextField(
-                "",
-                text: $title
-            )
-                .placeholder(when: title.isEmpty) {
-                    Text("Deadline (Optional)")
-                        .foregroundColor(.white)
-                        .font(.custom(Fonts.Montserrat.rawValue, size: 16))
-                }
-                .foregroundColor(.white)
-                .frame(
-                    height: 48.0,
-                    alignment: .center
-                )
-                .padding(.horizontal, 45)
-                .overlay(
-                    RoundedRectangle(cornerRadius: 15)
-                        .strokeBorder(.white, lineWidth: 2)
-                        .padding(.horizontal, 25)
-                )
+            //            TextField(
+            //                "",
+            //                text: $createTipViewModel.deadline
+            //            )
+            //                .placeholder(when: createTipViewModel.deadline.isEmpty) {
+            //                    Text("Deadline (Optional)")
+            //                        .foregroundColor(.white)
+            //                        .font(.custom(Fonts.Montserrat.rawValue, size: 16))
+            //                }
+            //                .foregroundColor(.white)
+            //                .frame(
+            //                    height: 48.0,
+            //                    alignment: .center
+            //                )
+            //                .padding(.horizontal, 45)
+            //                .overlay(
+            //                    RoundedRectangle(cornerRadius: 15)
+            //                        .strokeBorder(.white, lineWidth: 2)
+            //                        .padding(.horizontal, 25)
+            //                )
             Button(action: {
-                addTodo(title, description)
+                createTipViewModel.createTip()
+                showSheet()
             }, label: {
                 Spacer()
                 Text("ADD TODO")
@@ -150,8 +149,6 @@ struct Form: View {
 
 struct Form_Previews: PreviewProvider {
     static var previews: some View {
-        Form(addTodo: { title,description in
-            print(title)
-        })
+        Form(showSheet: {})
     }
 }
