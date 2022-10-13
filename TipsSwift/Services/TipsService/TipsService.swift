@@ -62,7 +62,7 @@ class TipsService: TipsServiceProtocol {
                     self.tips.value = documents.compactMap { doc in
                         print(doc.data())
                         return try? doc.data(as: TipModel.self)
-                    } //?? []
+                    }
                 }
             isLoading.value = false
         } else { return }
@@ -72,16 +72,33 @@ class TipsService: TipsServiceProtocol {
         ///
     }
     
-    func updateTip(id: String, newTip: TipModel) {
-        //
+    func updateTip(newTip: TipModel) {
+        do {
+            if let uid = authService.user.value?.uid {
+                try db
+                    .collection("lists/\(uid)/tips")
+                    .document(newTip.id)
+                    .setData(from: newTip, merge: true)
+            } else { return }
+        } catch let error {
+            print(error)
+        }
     }
     
     func deleteTip(id: String) {
-        ///
+        if let uid = authService.user.value?.uid {
+            db
+                .collection("lists/\(uid)/tips")
+                .document(id).delete()
+        } else { return }
     }
     
     func toggleTip(id: String, isDone: Bool) {
-        //
+        if let uid = authService.user.value?.uid {
+            db
+                .collection("lists/\(uid)/tips")
+                .document(id).updateData(["isDone": isDone])
+        } else { return }
     }
     
     

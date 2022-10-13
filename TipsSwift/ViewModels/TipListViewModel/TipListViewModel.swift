@@ -33,4 +33,8 @@ class TipListViewModel: ObservableObject {
             self.errorMessage = errorMessage
         }.store(in: &cancellable)
     }
+    
+    func delete(id: String) {
+        tipsService.deleteTip(id: id)
+    }
 }

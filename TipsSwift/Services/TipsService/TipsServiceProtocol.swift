@@ -13,7 +13,7 @@ protocol TipsServiceProtocol: ServiceProtocol {
     func createTip(tip: TipModel)
     func subscribeTips()
     func getTips()
-    func updateTip(id: String, newTip: TipModel)
+    func updateTip(newTip: TipModel)
     func deleteTip(id: String)
     func toggleTip(id: String, isDone: Bool)
 }
