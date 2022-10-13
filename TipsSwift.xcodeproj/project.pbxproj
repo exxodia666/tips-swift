@@ -52,6 +52,9 @@
 		96F3847628A018150027C434 /* HeaderGoBackWithButtons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96F3847528A018150027C434 /* HeaderGoBackWithButtons.swift */; };
 		96F3847828A04F6F0027C434 /* Form.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96F3847728A04F6F0027C434 /* Form.swift */; };
 		96F3847A28A0544F0027C434 /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96F3847928A0544F0027C434 /* Fonts.swift */; };
+		96FBA84628F6014A001014CE /* TipsServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96FBA84528F6014A001014CE /* TipsServiceProtocol.swift */; };
+		96FBA84828F60422001014CE /* TipsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96FBA84728F60422001014CE /* TipsService.swift */; };
+		96FBA84B28F614A7001014CE /* CreateTipViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96FBA84A28F614A7001014CE /* CreateTipViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -94,6 +97,9 @@
 		96F3847528A018150027C434 /* HeaderGoBackWithButtons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderGoBackWithButtons.swift; sourceTree = "<group>"; };
 		96F3847728A04F6F0027C434 /* Form.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Form.swift; sourceTree = "<group>"; };
 		96F3847928A0544F0027C434 /* Fonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fonts.swift; sourceTree = "<group>"; };
+		96FBA84528F6014A001014CE /* TipsServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipsServiceProtocol.swift; sourceTree = "<group>"; };
+		96FBA84728F60422001014CE /* TipsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipsService.swift; sourceTree = "<group>"; };
+		96FBA84A28F614A7001014CE /* CreateTipViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateTipViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -157,7 +163,7 @@
 		9614332628A58791005A4E15 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
-				96DE61F928F3778C00B56EE3 /* New Group */,
+				96FBA84928F6148C001014CE /* CreateTipViewModel */,
 				9677B2C028F188B700497D67 /* UserViewModel */,
 				960B29C028AD7B6A0078DE14 /* SignUpViewModel */,
 				960B29BF28AD7B5C0078DE14 /* SignInViewModel */,
@@ -281,6 +287,7 @@
 		96ABDFA428A96C02003E6D84 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				96FBA84428F60127001014CE /* TipsService */,
 				96A24D2128F0BC4F0036F9DD /* AuthService */,
 				96ABDFA528A96C81003E6D84 /* TipListService.swift */,
 			);
@@ -339,13 +346,6 @@
 			path = ProfileScreen;
 			sourceTree = "<group>";
 		};
-		96DE61F928F3778C00B56EE3 /* New Group */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = "New Group";
-			sourceTree = "<group>";
-		};
 		96F3847228A017490027C434 /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -357,6 +357,23 @@
 				9677B2C328F189B700497D67 /* ContentView.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		96FBA84428F60127001014CE /* TipsService */ = {
+			isa = PBXGroup;
+			children = (
+				96FBA84528F6014A001014CE /* TipsServiceProtocol.swift */,
+				96FBA84728F60422001014CE /* TipsService.swift */,
+			);
+			path = TipsService;
+			sourceTree = "<group>";
+		};
+		96FBA84928F6148C001014CE /* CreateTipViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				96FBA84A28F614A7001014CE /* CreateTipViewModel.swift */,
+			);
+			path = CreateTipViewModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -446,6 +463,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				96DE61FB28F377A800B56EE3 /* SignInViewModel.swift in Sources */,
+				96FBA84828F60422001014CE /* TipsService.swift in Sources */,
+				96FBA84B28F614A7001014CE /* CreateTipViewModel.swift in Sources */,
 				96F3847A28A0544F0027C434 /* Fonts.swift in Sources */,
 				96BA543128ACE8B0003D3926 /* SignUpView.swift in Sources */,
 				96ABDFA628A96C81003E6D84 /* TipListService.swift in Sources */,
@@ -475,6 +494,11 @@
 				964A402C2896ACB000B8AA64 /* TipModel.swift in Sources */,
 				96BA542F28AC1C5F003D3926 /* SignInView.swift in Sources */,
 				96F3847628A018150027C434 /* HeaderGoBackWithButtons.swift in Sources */,
+				96BA542F28AC1C5F003D3926 /* SignInView.swift in Sources */,
+				96F3847628A018150027C434 /* HeaderGoBackWithButtons.swift in Sources */,
+				96BA542F28AC1C5F003D3926 /* SignInView.swift in Sources */,
+				96F3847628A018150027C434 /* HeaderGoBackWithButtons.swift in Sources */,
+				96FBA84628F6014A001014CE /* TipsServiceProtocol.swift in Sources */,
 				96A24D2528F0BD700036F9DD /* AuthServiceProtocol.swift in Sources */,
 				96C1503328A2E3FE005E5B47 /* FloatingButton.swift in Sources */,
 			);
