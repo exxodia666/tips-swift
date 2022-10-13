@@ -9,8 +9,7 @@ import SwiftUI
 import Combine
 
 struct TipListView: View {
-    @State private var showSheet = false
-    @ObservedObject var tipListViewModel = TipListViewModel()
+    @StateObject private var viewModel = TipListViewModel()
     
     var body: some View {
         NavigationView {
@@ -18,24 +17,26 @@ struct TipListView: View {
                 VStack {
                     Header(
                         title: "TODOLIST",
-                        onRightPress: {
-                            
-                        },
+                        onRightPress: {},
                         iconName: "gearshape"
                     )
-                    ScrollView {
-                        TopView(onFilterPress: {})
-                        ForEach(tipListViewModel.tipList) { tip in
-                            NavigationLink {
-                                TipDetailsScreen(id: tip.id)
-                                    .navigationBarBackButtonHidden(true)
-                                    .navigationBarHidden(true)
-                                    .navigationBarTitle("")
-                            } label: {
-                                TipComponent(tip: tip, onRemove: {
-                                    tipListViewModel.delete(id: tip.id)
-                                })
-                            }.animation(nil)
+                    if(viewModel.isLoading) {
+                        ProgressView().progressViewStyle(CircularProgressViewStyle())
+                    } else {
+                        ScrollView {
+                            TopView(onFilterPress: {})
+                            ForEach(viewModel.tips) { tip in
+                                NavigationLink {
+                                    TipDetailsScreen(id: tip.id)
+                                        .navigationBarBackButtonHidden(true)
+                                        .navigationBarHidden(true)
+                                        .navigationBarTitle("")
+                                } label: {
+                                    TipComponent(tip: tip, onRemove: {
+                                        viewModel.delete(id: tip.id)
+                                    })
+                                }.animation(nil)
+                            }
                         }
                     }
                 }
@@ -43,16 +44,17 @@ struct TipListView: View {
                     Spacer()
                     HStack {
                         Spacer()
-                        FloatingButton(showSheet: $showSheet)
+                        FloatingButton()
                     }
                     .padding(.horizontal, 20)
                 }
             }
             .navigationBarHidden(true)
             .navigationBarTitle("")
-        }.environmentObject(tipListViewModel)
+        }
     }
 }
+
 struct TipListView_Previews: PreviewProvider {
     static var previews: some View {
         TipListView()
