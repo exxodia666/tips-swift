@@ -9,8 +9,8 @@ import Foundation
 import FirebaseFirestore
 import FirebaseFirestoreSwift
 
-class TipsService: TipsServiceProtocol {
-    
+class TipsService: TipsServiceProtocol {   
+    var tip = CurrentValueSubject<TipModel?, Never>(nil)
     var tips = CurrentValueSubject<[TipModel], Never>([])
     var errorMessage = PassthroughSubject<String, Never>()
     var isLoading = CurrentValueSubject<Bool, Never>(false)
@@ -68,8 +68,21 @@ class TipsService: TipsServiceProtocol {
         } else { return }
     }
     
-    func getTips() {
-        ///
+    func getTipList() {
+        //NOT IMPLEMENTED YET
+    }
+    
+    func getTip(id: String) {
+        isLoading.value = true
+        if let uid = authService.user.value?.uid {
+            db
+                .collection("lists/\(uid)/tips")
+                .document(id).addSnapshotListener({ snapshot, error in
+                    self.tip.value = try? snapshot?.data(as: TipModel.self)
+                    self.isLoading.value = false
+                })
+            
+        } else { return }
     }
     
     func updateTip(newTip: TipModel) {
@@ -97,11 +110,7 @@ class TipsService: TipsServiceProtocol {
         if let uid = authService.user.value?.uid {
             db
                 .collection("lists/\(uid)/tips")
-                .document(id).updateData(["isDone": isDone])
+                .document(id).updateData(["isDone": !isDone])
         } else { return }
     }
-    
-    
-    
-    
 }
