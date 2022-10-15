@@ -11,9 +11,9 @@ struct HeaderGoBackWithButtons: View {
     let title: String
     let iconName: String
     let onGoBackPress: () -> Void
-    let onTogglePress: () -> Void
+    let onEditPress: () -> Void
     let onDeletePress: () -> Void
-
+    
     var body: some View {
         HStack {
             Button {
@@ -25,14 +25,14 @@ struct HeaderGoBackWithButtons: View {
             }
             Spacer()
             Button {
-                onTogglePress()
+                onEditPress()
             } label: {
-                Image(systemName: "checkmark.circle.fill")
+                Image(systemName: "pencil")
                     .foregroundColor(.dark)
                     .font(.system(size: 25))
             }
             Button {
-                onGoBackPress()
+                onDeletePress()
             } label: {
                 Image(Images.trash.rawValue)
                     .foregroundColor(.dark)
@@ -48,7 +48,7 @@ struct HeaderGoBackWithButtons_Previews: PreviewProvider {
             title: "Header",
             iconName: "",
             onGoBackPress: {},
-            onTogglePress: {},
+            onEditPress: {},
             onDeletePress: {}
         )
     }
