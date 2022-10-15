@@ -7,22 +7,15 @@
 
 import SwiftUI
 import CoreData
+
 struct TipDetailsScreen: View {
-    let id: NSManagedObjectID
-    
+    let id: String
     @Environment(\.presentationMode) var presentationMode
-    @EnvironmentObject var tipsViewModel: TipListViewModel
+    @StateObject private var viewModel = TipDetailsViewModel()
+    @State private var isSheetShown: Bool = false
     
-    var tip: TipModel {
-        return tipsViewModel.tipList.first { $0.id == self.id}!
-    }
-    
-    func toggle() {
-        tipsViewModel.toggle(id: self.id)
-    }
-    
-    func delete() {
-        tipsViewModel.delete(id: self.id)
+    func showSheet() {
+        isSheetShown = false
     }
     
     var body: some View {
@@ -31,34 +24,47 @@ struct TipDetailsScreen: View {
                 title: "Header",
                 iconName: "") {
                     self.presentationMode.wrappedValue.dismiss()
-                } onTogglePress: {
-                    toggle()
+                } onEditPress: {
+                   isSheetShown = true
                 } onDeletePress: {
-                    delete()
+                    viewModel.deleteTip(id: id)
+                    self.presentationMode.wrappedValue.dismiss()
                 }
             VStack {
                 HStack {
-                    Text(tip.title)
-                        .strikethrough(tip.isChecked)
-                        .font(.custom(Fonts.BebasNeue.rawValue, size: 26))
-                        .padding(.top, 24)
-                        .padding(.horizontal, 25)
+                    Button {
+                        viewModel.toggleTipState(
+                            id: id,
+                            isDone: viewModel.tip?.isDone ?? false
+                        )
+                    } label: {
+                        Text(viewModel.tip?.title ?? "No title")
+                            .strikethrough(viewModel.tip?.isDone ?? false)
+                            .font(.custom(Fonts.BebasNeue.rawValue, size: 26))
+                            .foregroundColor(.dark)
+                            .padding(.top, 24)
+                            .padding(.horizontal, 25)
+                    }
+
+                    
                     Spacer()
-                }.padding(.bottom, 25)
+                }.padding(.bottom, 24)
+                
                 HStack {
-                    Text(tip.descriprion)
-                        .strikethrough(tip.isChecked)
+                    Text(viewModel.tip?.descriprion ?? "No description ")
+                        .strikethrough(viewModel.tip?.isDone ?? false)
                         .font(.custom(Fonts.Montserrat.rawValue, size: 14))
                         .lineSpacing(10)
                         .foregroundColor(.dark)
                         .padding(.horizontal, 25)
                         .padding(.bottom, 12)
                     Spacer()
-                }
+                }.padding(.bottom, 25)
+                ImageView(withURL: viewModel.tip?.image ?? "")
                 Spacer()
                 HStack {
                     Spacer()
-                    Text("Created at 1 Sept 2021")
+                    Text("Created at " + (viewModel.tip?.deadline.formatted() ?? "No date"))
                         .font(.custom(Fonts.Montserrat.rawValue, size: 11))
                         .foregroundColor(.dark)
                         .padding(.horizontal, 16)
@@ -66,14 +72,17 @@ struct TipDetailsScreen: View {
                     Spacer()
                 }
             }
+        }.onAppear {
+            viewModel.getTip(id: id)
+        }.sheet(isPresented: $isSheetShown) {
+            EditForm(showSheet: showSheet)
         }
     }
 }
 
 
 struct TodoDetailsScreen_Previews: PreviewProvider {
-    @ObservedObject static var tipListViewModel = TipListViewModel()
     static var previews: some View {
-        TipDetailsScreen(id: tipListViewModel.tipList.first!.id )
+        TipDetailsScreen(id: "dasfas-asfasfa-fsafa-fasfas")
     }
 }

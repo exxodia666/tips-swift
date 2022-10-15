@@ -1,14 +1,15 @@
 //
-//  Form.swift
+//  EditForm.swift
 //  TipsSwift
 //
-//  Created by Alexey Olefir on 07.08.2022.
+//  Created by Alexey Olefir on 15.10.2022.
 //
 
 import SwiftUI
 
-struct Form: View {
-    @StateObject private var createTipViewModel: CreateTipViewModel = CreateTipViewModel()
+struct EditForm: View {
+    @StateObject private var viewModel: EditTipViewModel = EditTipViewModel()
+    
     let showSheet: () -> Void
     init(showSheet: @escaping () -> Void) {
         UITextView.appearance().backgroundColor = .clear
@@ -31,9 +32,9 @@ struct Form: View {
                 .padding(.bottom, 16)
             TextField(
                 "",
-                text: $createTipViewModel.title
+                text: $viewModel.title
             )
-                .placeholder(when: createTipViewModel.title.isEmpty) {
+                .placeholder(when: viewModel.title.isEmpty) {
                     Text("Title")
                         .foregroundColor(.white)
                         .font(.custom(Fonts.Montserrat.rawValue, size: 16))
@@ -51,12 +52,12 @@ struct Form: View {
                 )
             ZStack {
                 TextEditor(
-                    text: $createTipViewModel.description
+                    text: $viewModel.description
                 )
                     .padding(.top, 5)
                 VStack {
                     HStack {
-                        Text(createTipViewModel.description.isEmpty ? "Description" : "")
+                        Text(viewModel.description.isEmpty ? "Description" : "")
                             .foregroundColor(.white)
                             .font(.custom(Fonts.Montserrat.rawValue, size: 16))
                             .padding(.top, 15)
@@ -79,9 +80,9 @@ struct Form: View {
             )
             TextField(
                 "",
-                text: $createTipViewModel.image
+                text: $viewModel.image
             )
-                .placeholder(when: createTipViewModel.image.isEmpty) {
+                .placeholder(when: viewModel.image.isEmpty) {
                     Text("Add Image (Optional)")
                         .foregroundColor(.white)
                         .font(.custom(Fonts.Montserrat.rawValue, size: 16))
@@ -99,7 +100,7 @@ struct Form: View {
                 )
             //            TextField(
             //                "",
-            //                text: $createTipViewModel.deadline
+            //                text: $viewModel.deadline
             //            )
             //                .placeholder(when: createTipViewModel.deadline.isEmpty) {
             //                    Text("Deadline (Optional)")
@@ -118,11 +119,11 @@ struct Form: View {
             //                        .padding(.horizontal, 25)
             //                )
             Button(action: {
-                createTipViewModel.createTip()
+                viewModel.updateTip()
                 showSheet()
             }, label: {
                 Spacer()
-                Text("ADD TODO")
+                Text("UPDATE TODO")
                     .foregroundColor(.peach)
                     .font(.custom(Fonts.MontserratMedium.rawValue, size: 16))
                 Spacer()
@@ -147,8 +148,8 @@ struct Form: View {
     }
 }
 
-struct Form_Previews: PreviewProvider {
+struct EditForm_Previews: PreviewProvider {
     static var previews: some View {
-        Form(showSheet: {})
+        EditForm(showSheet: {})
     }
 }

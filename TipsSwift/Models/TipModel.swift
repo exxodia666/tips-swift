@@ -7,9 +7,11 @@
 import Foundation
 import CoreData
 
-struct TipModel: Identifiable {
-    var id: NSManagedObjectID
+struct TipModel: Identifiable, Encodable, Decodable {
+    var id: String
     var title: String
     var descriprion: String
-    var isChecked: Bool
+    var deadline: Date
+    var isDone: Bool
+    var image: String
 }

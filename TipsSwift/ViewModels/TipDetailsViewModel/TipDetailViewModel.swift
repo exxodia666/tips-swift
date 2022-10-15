@@ -1,8 +1,8 @@
 //
-//  TodoListViewModel.swift
+//  TipDetailViewModel.swift
 //  TipsSwift
 //
-//  Created by Alexey Olefir on 11.08.2022.
+//  Created by Alexey Olefir on 14.10.2022.
 //
 
 import Combine
@@ -10,19 +10,20 @@ import SwiftUI
 import CoreData
 import Foundation
 
-class TipListViewModel: ObservableObject {
-    @Published var tips: [TipModel] = []
+class TipDetailsViewModel: ObservableObject {
+    @Published var tip: TipModel?
     
     @Published var isLoading: Bool = false
     @Published var errorMessage: String?
-
+    
     private let tipsService: TipsServiceProtocol
     private var cancellable = Set<AnyCancellable>()
     
     init(tipsService: TipsServiceProtocol = TipsService.shared) {
         self.tipsService = tipsService
-        tipsService.tips.sink { tips in
-            self.tips = tips
+        
+        tipsService.tip.sink { tip in
+            self.tip = tip
         }.store(in: &cancellable)
         
         tipsService.isLoading.sink { isLoading in
@@ -34,7 +35,14 @@ class TipListViewModel: ObservableObject {
         }.store(in: &cancellable)
     }
     
-    func delete(id: String) {
+    func getTip(id: String) {
+        tipsService.getTip(id: id)
+    }
+    func deleteTip(id: String) {
         tipsService.deleteTip(id: id)
+    }
+    
+    func toggleTipState(id: String, isDone: Bool) {
+        tipsService.toggleTip(id: id, isDone: isDone)
     }
 }

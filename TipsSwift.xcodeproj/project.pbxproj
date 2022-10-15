@@ -11,6 +11,11 @@
 		960B29C428AD7FE50078DE14 /* TextFieldUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 960B29C328AD7FE50078DE14 /* TextFieldUI.swift */; };
 		9614332C28A58835005A4E15 /* TipListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9614332B28A58835005A4E15 /* TipListViewModel.swift */; };
 		9614333328A59C51005A4E15 /* TipsDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9614333128A59C51005A4E15 /* TipsDataModel.xcdatamodeld */; };
+		96390D1428F9E10E00FE13E8 /* TipDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96390D1328F9E10E00FE13E8 /* TipDetailViewModel.swift */; };
+		96390D1728F9F47A00FE13E8 /* ImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96390D1628F9F47A00FE13E8 /* ImageView.swift */; };
+		96390D1928F9F48A00FE13E8 /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96390D1828F9F48A00FE13E8 /* ImageLoader.swift */; };
+		96390D1B28FB33DC00FE13E8 /* EditForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96390D1A28FB33DC00FE13E8 /* EditForm.swift */; };
+		96390D1E28FB441600FE13E8 /* EditTipViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96390D1D28FB441600FE13E8 /* EditTipViewModel.swift */; };
 		964A3FF72895CAFE00B8AA64 /* TipsSwiftApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964A3FF62895CAFE00B8AA64 /* TipsSwiftApp.swift */; };
 		964A3FF92895CAFE00B8AA64 /* TipListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964A3FF82895CAFE00B8AA64 /* TipListView.swift */; };
 		964A3FFB2895CAFF00B8AA64 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 964A3FFA2895CAFF00B8AA64 /* Assets.xcassets */; };
@@ -52,6 +57,9 @@
 		96F3847628A018150027C434 /* HeaderGoBackWithButtons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96F3847528A018150027C434 /* HeaderGoBackWithButtons.swift */; };
 		96F3847828A04F6F0027C434 /* Form.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96F3847728A04F6F0027C434 /* Form.swift */; };
 		96F3847A28A0544F0027C434 /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96F3847928A0544F0027C434 /* Fonts.swift */; };
+		96FBA84628F6014A001014CE /* TipsServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96FBA84528F6014A001014CE /* TipsServiceProtocol.swift */; };
+		96FBA84828F60422001014CE /* TipsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96FBA84728F60422001014CE /* TipsService.swift */; };
+		96FBA84B28F614A7001014CE /* CreateTipViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96FBA84A28F614A7001014CE /* CreateTipViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -59,6 +67,11 @@
 		960B29C328AD7FE50078DE14 /* TextFieldUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldUI.swift; sourceTree = "<group>"; };
 		9614332B28A58835005A4E15 /* TipListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipListViewModel.swift; sourceTree = "<group>"; };
 		9614333228A59C51005A4E15 /* TipsDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TipsDataModel.xcdatamodel; sourceTree = "<group>"; };
+		96390D1328F9E10E00FE13E8 /* TipDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipDetailViewModel.swift; sourceTree = "<group>"; };
+		96390D1628F9F47A00FE13E8 /* ImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageView.swift; sourceTree = "<group>"; };
+		96390D1828F9F48A00FE13E8 /* ImageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoader.swift; sourceTree = "<group>"; };
+		96390D1A28FB33DC00FE13E8 /* EditForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditForm.swift; sourceTree = "<group>"; };
+		96390D1D28FB441600FE13E8 /* EditTipViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditTipViewModel.swift; sourceTree = "<group>"; };
 		964A3FF32895CAFE00B8AA64 /* TipsSwift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TipsSwift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		964A3FF62895CAFE00B8AA64 /* TipsSwiftApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipsSwiftApp.swift; sourceTree = "<group>"; };
 		964A3FF82895CAFE00B8AA64 /* TipListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipListView.swift; sourceTree = "<group>"; };
@@ -94,6 +107,9 @@
 		96F3847528A018150027C434 /* HeaderGoBackWithButtons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderGoBackWithButtons.swift; sourceTree = "<group>"; };
 		96F3847728A04F6F0027C434 /* Form.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Form.swift; sourceTree = "<group>"; };
 		96F3847928A0544F0027C434 /* Fonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fonts.swift; sourceTree = "<group>"; };
+		96FBA84528F6014A001014CE /* TipsServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipsServiceProtocol.swift; sourceTree = "<group>"; };
+		96FBA84728F60422001014CE /* TipsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipsService.swift; sourceTree = "<group>"; };
+		96FBA84A28F614A7001014CE /* CreateTipViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateTipViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -157,7 +173,9 @@
 		9614332628A58791005A4E15 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
-				96DE61F928F3778C00B56EE3 /* New Group */,
+				96390D1C28FB415F00FE13E8 /* EditTipViewModel */,
+				96390D1228F9E0F200FE13E8 /* TipDetailsViewModel */,
+				96FBA84928F6148C001014CE /* CreateTipViewModel */,
 				9677B2C028F188B700497D67 /* UserViewModel */,
 				960B29C028AD7B6A0078DE14 /* SignUpViewModel */,
 				960B29BF28AD7B5C0078DE14 /* SignInViewModel */,
@@ -181,6 +199,31 @@
 				9614333128A59C51005A4E15 /* TipsDataModel.xcdatamodeld */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		96390D1228F9E0F200FE13E8 /* TipDetailsViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				96390D1328F9E10E00FE13E8 /* TipDetailViewModel.swift */,
+			);
+			path = TipDetailsViewModel;
+			sourceTree = "<group>";
+		};
+		96390D1528F9F45500FE13E8 /* ImageView */ = {
+			isa = PBXGroup;
+			children = (
+				96390D1628F9F47A00FE13E8 /* ImageView.swift */,
+				96390D1828F9F48A00FE13E8 /* ImageLoader.swift */,
+			);
+			path = ImageView;
+			sourceTree = "<group>";
+		};
+		96390D1C28FB415F00FE13E8 /* EditTipViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				96390D1D28FB441600FE13E8 /* EditTipViewModel.swift */,
+			);
+			path = EditTipViewModel;
 			sourceTree = "<group>";
 		};
 		964A3FEA2895CAFD00B8AA64 = {
@@ -230,6 +273,7 @@
 		964A402828969B8300B8AA64 /* components */ = {
 			isa = PBXGroup;
 			children = (
+				96390D1528F9F45500FE13E8 /* ImageView */,
 				964A40262896945200B8AA64 /* TipComponent.swift */,
 				96DB4B03289F001C00571C6C /* Header.swift */,
 				96F3847528A018150027C434 /* HeaderGoBackWithButtons.swift */,
@@ -239,6 +283,7 @@
 				960B29C328AD7FE50078DE14 /* TextFieldUI.swift */,
 				965974B128EE1A4E00971B41 /* SecureFieldUI.swift */,
 				9677B2C528F1BB7100497D67 /* HeaderGoBack.swift */,
+				96390D1A28FB33DC00FE13E8 /* EditForm.swift */,
 			);
 			path = components;
 			sourceTree = "<group>";
@@ -281,6 +326,7 @@
 		96ABDFA428A96C02003E6D84 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				96FBA84428F60127001014CE /* TipsService */,
 				96A24D2128F0BC4F0036F9DD /* AuthService */,
 				96ABDFA528A96C81003E6D84 /* TipListService.swift */,
 			);
@@ -339,13 +385,6 @@
 			path = ProfileScreen;
 			sourceTree = "<group>";
 		};
-		96DE61F928F3778C00B56EE3 /* New Group */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = "New Group";
-			sourceTree = "<group>";
-		};
 		96F3847228A017490027C434 /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -357,6 +396,23 @@
 				9677B2C328F189B700497D67 /* ContentView.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		96FBA84428F60127001014CE /* TipsService */ = {
+			isa = PBXGroup;
+			children = (
+				96FBA84528F6014A001014CE /* TipsServiceProtocol.swift */,
+				96FBA84728F60422001014CE /* TipsService.swift */,
+			);
+			path = TipsService;
+			sourceTree = "<group>";
+		};
+		96FBA84928F6148C001014CE /* CreateTipViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				96FBA84A28F614A7001014CE /* CreateTipViewModel.swift */,
+			);
+			path = CreateTipViewModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -446,6 +502,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				96DE61FB28F377A800B56EE3 /* SignInViewModel.swift in Sources */,
+				96FBA84828F60422001014CE /* TipsService.swift in Sources */,
+				96FBA84B28F614A7001014CE /* CreateTipViewModel.swift in Sources */,
 				96F3847A28A0544F0027C434 /* Fonts.swift in Sources */,
 				96BA543128ACE8B0003D3926 /* SignUpView.swift in Sources */,
 				96ABDFA628A96C81003E6D84 /* TipListService.swift in Sources */,
@@ -464,7 +522,10 @@
 				9677B2C428F189B700497D67 /* ContentView.swift in Sources */,
 				96DE61F528F36F8C00B56EE3 /* SignUpViewModel.swift in Sources */,
 				9614333328A59C51005A4E15 /* TipsDataModel.xcdatamodeld in Sources */,
+				96390D1928F9F48A00FE13E8 /* ImageLoader.swift in Sources */,
 				96A0A17D28F4C0EA00DF8F65 /* ServiceProtocol.swift in Sources */,
+				96390D1B28FB33DC00FE13E8 /* EditForm.swift in Sources */,
+				96390D1E28FB441600FE13E8 /* EditTipViewModel.swift in Sources */,
 				9693F35228A19E0100434B21 /* ModalButton.swift in Sources */,
 				96A24D2328F0BC760036F9DD /* FirebaseAuthService.swift in Sources */,
 				964A3FF72895CAFE00B8AA64 /* TipsSwiftApp.swift in Sources */,
@@ -475,8 +536,15 @@
 				964A402C2896ACB000B8AA64 /* TipModel.swift in Sources */,
 				96BA542F28AC1C5F003D3926 /* SignInView.swift in Sources */,
 				96F3847628A018150027C434 /* HeaderGoBackWithButtons.swift in Sources */,
+				96BA542F28AC1C5F003D3926 /* SignInView.swift in Sources */,
+				96F3847628A018150027C434 /* HeaderGoBackWithButtons.swift in Sources */,
+				96BA542F28AC1C5F003D3926 /* SignInView.swift in Sources */,
+				96F3847628A018150027C434 /* HeaderGoBackWithButtons.swift in Sources */,
+				96FBA84628F6014A001014CE /* TipsServiceProtocol.swift in Sources */,
 				96A24D2528F0BD700036F9DD /* AuthServiceProtocol.swift in Sources */,
 				96C1503328A2E3FE005E5B47 /* FloatingButton.swift in Sources */,
+				96390D1728F9F47A00FE13E8 /* ImageView.swift in Sources */,
+				96390D1428F9E10E00FE13E8 /* TipDetailViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -14,7 +14,7 @@ struct SignUpView: View {
     var body: some View {
         NavigationView {
             if(viewModel.isLoading) {
-                ProgressView() .progressViewStyle(CircularProgressViewStyle())
+                ProgressView().progressViewStyle(CircularProgressViewStyle())
             } else {
                 VStack {
                     Spacer()

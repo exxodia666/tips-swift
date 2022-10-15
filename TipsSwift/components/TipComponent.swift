@@ -29,7 +29,7 @@ struct TipComponent: View {
             VStack {
                 HStack {
                     Text(tip.title )
-                        .strikethrough(tip.isChecked)
+                        .strikethrough(tip.isDone)
                         .padding(.horizontal, 16)
                         .font(.custom(Fonts.MontserratMedium.rawValue, size: 16))
                         .foregroundColor(.white)
@@ -40,21 +40,21 @@ struct TipComponent: View {
                 .padding(.top, 15)
                 .padding(.bottom, 12)
                 Text(tip.descriprion )
-                    .strikethrough(tip.isChecked)
+                    .strikethrough(tip.isDone)
                     .font(.custom(Fonts.Montserrat.rawValue, size: 14)).lineSpacing(10)
                     .foregroundColor(.white)
                     .padding(.horizontal, 16)
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .lineLimit(2)
                     .padding(.bottom, 12)
-
+                
                 Text("Created at 1 Sept 2021")
                     .font(.custom(Fonts.Montserrat.rawValue, size: 11))
                     .foregroundColor(.white)
                     .padding(.horizontal, 16)
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .padding(.bottom, 10)
-
+                
             }.background(
                 RoundedRectangle(cornerRadius: 12)
                     .foregroundColor(.peach)
@@ -82,9 +82,16 @@ struct TipComponent: View {
 }
 
 struct Tip_Previews: PreviewProvider {
-    @ObservedObject static var tipListViewModel = TipListViewModel()
     static var previews: some View {
-        TipComponent(tip: tipListViewModel.tipList.first!) {
-        }
+        TipComponent(
+            tip: TipModel(
+                id: "fasfsafasfasf",
+                title: "fasfsafaff",
+                descriprion: "fasfsafaff",
+                deadline: Date(),
+                isDone: false,
+                image: ""
+            )
+        ) {}
     }
 }
