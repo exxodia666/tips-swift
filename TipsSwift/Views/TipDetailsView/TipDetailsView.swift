@@ -75,7 +75,7 @@ struct TipDetailsScreen: View {
         }.onAppear {
             viewModel.getTip(id: id)
         }.sheet(isPresented: $isSheetShown) {
-            EditForm(showSheet: showSheet)
+            EditTipView(showSheet: showSheet)
         }
     }
 }

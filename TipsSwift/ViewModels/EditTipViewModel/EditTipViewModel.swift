@@ -18,6 +18,7 @@ class EditTipViewModel: ObservableObject {
     @Published var deadline: Date = Date()
     @Published var image: String = ""
     
+    
     @Published var isLoading: Bool = false
     @Published var errorMessage: String?
     
