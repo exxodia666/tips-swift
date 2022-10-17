@@ -17,10 +17,12 @@ class TipDetailsViewModel: ObservableObject {
     @Published var errorMessage: String?
     
     private let tipsService: TipsServiceProtocol
+    private let imageService: ImageServiceProtocol
     private var cancellable = Set<AnyCancellable>()
     
-    init(tipsService: TipsServiceProtocol = TipsService.shared) {
+    init(tipsService: TipsServiceProtocol = TipsService.shared, imageService: ImageServiceProtocol = ImageService.shared) {
         self.tipsService = tipsService
+        self.imageService = imageService
         
         tipsService.tip.sink { tip in
             self.tip = tip
@@ -39,6 +41,9 @@ class TipDetailsViewModel: ObservableObject {
         tipsService.getTip(id: id)
     }
     func deleteTip(id: String) {
+        if let imageUrl = tip?.image {
+            imageService.removeImage(url: imageUrl)
+        }
         tipsService.deleteTip(id: id)
     }
     
