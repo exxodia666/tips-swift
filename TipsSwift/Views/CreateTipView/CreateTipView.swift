@@ -1,17 +1,16 @@
 //
-//  Form.swift
+//  CreateTipView.swift
 //  TipsSwift
 //
-//  Created by Alexey Olefir on 07.08.2022.
+//  Created by Alexey Olefir on 17.10.2022.
 //
 
 import SwiftUI
 
-struct Form: View {
+struct CreateTipView: View {
     @StateObject private var createTipViewModel: CreateTipViewModel = CreateTipViewModel()
     
     @State var showImagePicker: Bool = false
-    @State var image: Image? = nil
     
     let showSheet: () -> Void
     init(showSheet: @escaping () -> Void) {
@@ -79,32 +78,7 @@ struct Form: View {
                     .strokeBorder(.white, lineWidth: 2)
                     .padding(.horizontal, 25)
             )
-            //            TextField(
-            //                "",
-            //                text: $createTipViewModel.image
-            //            )
-            //                .placeholder(when: createTipViewModel.image.isEmpty) {
-            //                    Text("Add Image (Optional)")
-            //                        .foregroundColor(.white)
-            //                        .font(.custom(Fonts.Montserrat.rawValue, size: 16))
-            //                }
-            //                .foregroundColor(.white)
-            //                .frame(
-            //                    height: 48.0,
-            //                    alignment: .center
-            //                )
-            //                .padding(.horizontal, 45)
-            //                .overlay(
-            //                    RoundedRectangle(cornerRadius: 15)
-            //                        .strokeBorder(.white, lineWidth: 2)
-            //                        .padding(.horizontal, 25)
-            //                )
-            //            ZStack {
-            //                VStack {
-            //                    Button(action: {
-            //                        self.showImagePicker.toggle()
-            //                    }) {
-            if image == nil {
+            if self.createTipViewModel.imagePreview == nil {
                 Button(action: {
                     self.showImagePicker.toggle()
                 }, label: {
@@ -116,7 +90,7 @@ struct Form: View {
                 })
                     .sheet(isPresented: $showImagePicker) {
                         ImagePicker(sourceType: .photoLibrary) { image in
-                            self.image = Image(uiImage: image)
+                            self.createTipViewModel.imagePreview = image
                         }
                     }
                     .frame(
@@ -128,11 +102,12 @@ struct Form: View {
                         RoundedRectangle(cornerRadius: 12)
                             .strokeBorder(.white, lineWidth: 2)
                             .foregroundColor(.white)
-                    ).padding(.horizontal, 25)}
+                    ).padding(.horizontal, 25)
+            }
             Spacer()
-            if image != nil {
+            if let image = self.createTipViewModel.imagePreview {
                 ZStack {
-                    image?
+                    Image(uiImage: image)
                         .resizable()
                         .background(Color.light_peach)
                         .padding(.horizontal, 24.0)
@@ -141,12 +116,11 @@ struct Form: View {
                                 .strokeBorder(.white, lineWidth: 2)
                                 .padding(.horizontal, 24.0)
                         )
-                    //                        .clipShape(RoundedRectangle(cornerRadius: 12))
                     VStack {
                         HStack {
                             Spacer()
                             Button {
-                                image = nil
+                                self.createTipViewModel.imagePreview = nil
                             } label: {
                                 Image(systemName: "trash")
                                     .frame(width: 30, height: 30, alignment: .center)
@@ -164,27 +138,6 @@ struct Form: View {
                         Spacer()
                     }
                 }}
-            
-            //            TextField(
-            //                "",
-            //                text: $createTipViewModel.deadline
-            //            )
-            //                .placeholder(when: createTipViewModel.deadline.isEmpty) {
-            //                    Text("Deadline (Optional)")
-            //                        .foregroundColor(.white)
-            //                        .font(.custom(Fonts.Montserrat.rawValue, size: 16))
-            //                }
-            //                .foregroundColor(.white)
-            //                .frame(
-            //                    height: 48.0,
-            //                    alignment: .center
-            //                )
-            //                .padding(.horizontal, 45)
-            //                .overlay(
-            //                    RoundedRectangle(cornerRadius: 15)
-            //                        .strokeBorder(.white, lineWidth: 2)
-            //                        .padding(.horizontal, 25)
-            //                )
             Button(action: {
                 createTipViewModel.createTip()
                 showSheet()
@@ -215,8 +168,8 @@ struct Form: View {
     }
 }
 
-struct Form_Previews: PreviewProvider {
+struct CreateTipView_Previews: PreviewProvider {
     static var previews: some View {
-        Form(showSheet: {})
+        CreateTipView(showSheet: {})
     }
 }
