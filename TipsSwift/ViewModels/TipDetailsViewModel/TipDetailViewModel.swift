@@ -42,9 +42,12 @@ class TipDetailsViewModel: ObservableObject {
     }
     func deleteTip(id: String) {
         if let imageUrl = tip?.image {
-            imageService.removeImage(url: imageUrl)
+            imageService.removeImage(url: imageUrl) { [self] in
+                tipsService.deleteTip(id: id)
+            }
+        } else {
+            tipsService.deleteTip(id: id)
         }
-        tipsService.deleteTip(id: id)
     }
     
     func toggleTipState(id: String, isDone: Bool) {

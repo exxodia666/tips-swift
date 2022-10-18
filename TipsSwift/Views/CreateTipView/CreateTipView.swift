@@ -105,39 +105,39 @@ struct CreateTipView: View {
                     ).padding(.horizontal, 25)
             }
             Spacer()
-            if let image = self.createTipViewModel.imagePreview {
-                ZStack {
-                    Image(uiImage: image)
-                        .resizable()
-                        .background(Color.light_peach)
-                        .padding(.horizontal, 24.0)
-                        .overlay(
-                            RoundedRectangle(cornerRadius: 0)
-                                .strokeBorder(.white, lineWidth: 2)
-                                .padding(.horizontal, 24.0)
-                        )
-                    VStack {
-                        HStack {
-                            Spacer()
-                            Button {
-                                self.createTipViewModel.imagePreview = nil
-                            } label: {
-                                Image(systemName: "trash")
-                                    .frame(width: 30, height: 30, alignment: .center)
-                                    .font(.system(size: 16))
-                                    .foregroundColor(.white)
-                                    .background(
-                                        Circle()
-                                            .size(width: 30, height: 30)
-                                            .foregroundColor(.red)
-                                    )
-                                    .padding(.trailing, 15)
-                                    .padding(.top, -2)
-                            }
-                        }
-                        Spacer()
-                    }
-                }}
+//            if let image = self.createTipViewModel.imagePreview {
+//                ZStack {
+//                    Image(uiImage: image)
+//                        .resizable()
+//                        .background(Color.light_peach)
+//                        .padding(.horizontal, 24.0)
+//                        .overlay(
+//                            RoundedRectangle(cornerRadius: 0)
+//                                .strokeBorder(.white, lineWidth: 2)
+//                                .padding(.horizontal, 24.0)
+//                        )
+//                    VStack {
+//                        HStack {
+//                            Spacer()
+//                            Button {
+//                                self.createTipViewModel.imagePreview = nil
+//                            } label: {
+//                                Image(systemName: "trash")
+//                                    .frame(width: 30, height: 30, alignment: .center)
+//                                    .font(.system(size: 16))
+//                                    .foregroundColor(.white)
+//                                    .background(
+//                                        Circle()
+//                                            .size(width: 30, height: 30)
+//                                            .foregroundColor(.red)
+//                                    )
+//                                    .padding(.trailing, 15)
+//                                    .padding(.top, -2)
+//                            }
+//                        }
+//                        Spacer()
+//                    }
+//                }}
             Button(action: {
                 createTipViewModel.createTip()
                 showSheet()

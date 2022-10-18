@@ -60,7 +60,7 @@ struct TipDetailsScreen: View {
                         .padding(.bottom, 12)
                     Spacer()
                 }.padding(.bottom, 25)
-                ImageView(withURL: viewModel.tip?.image ?? "")
+//                ImageView(withURL: viewModel.tip?.image ?? "")
                 Spacer()
                 HStack {
                     Spacer()

@@ -10,5 +10,5 @@ import Foundation
 
 protocol ImageServiceProtocol {
     func uploadImage(image: UIImage, completionHandler: @escaping (_ imageUrl: String) -> Void)
-    func removeImage(url: String)
+    func removeImage(url: String, completionHandler: @escaping () -> Void)
 }

@@ -20,6 +20,9 @@ struct Header: View {
             Spacer()
             NavigationLink {
                 ProfileView()
+                    .navigationBarBackButtonHidden(true)
+                    .navigationBarHidden(true)
+                    .navigationBarTitle("")
             } label: {
                 Image(systemName: iconName)
                     .foregroundColor(.dark)

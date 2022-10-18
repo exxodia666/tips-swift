@@ -78,7 +78,34 @@ struct EditTipView: View {
                     .strokeBorder(.white, lineWidth: 2)
                     .padding(.horizontal, 25)
             )
-            ImageView(withURL: viewModel.image)
+//            ZStack {
+//                AnyView(ImageView(withURL: viewModel.image)).overlay(
+//                    RoundedRectangle(cornerRadius: 0)
+//                        .strokeBorder(.white, lineWidth: 2)
+//                        .padding(.horizontal, 25)
+//                )
+//                VStack {
+//                    HStack {
+//                        Spacer()
+//                        Button {
+//                            self.viewModel.image = ""
+//                        } label: {
+//                            Image(systemName: "trash")
+//                                .frame(width: 30, height: 30, alignment: .center)
+//                                .font(.system(size: 16))
+//                                .foregroundColor(.white)
+//                                .background(
+//                                    Circle()
+//                                        .size(width: 30, height: 30)
+//                                        .foregroundColor(.red)
+//                                )
+//                                .padding(.trailing, 15)
+//                                .padding(.top, -2)
+//                        }
+//                    }
+//                    Spacer()
+//                }
+//            }
             Button(action: {
                 viewModel.updateTip()
                 showSheet()

@@ -15,7 +15,7 @@ class TipListViewModel: ObservableObject {
     
     @Published var isLoading: Bool = false
     @Published var errorMessage: String?
-
+    
     private let tipsService: TipsServiceProtocol
     private let imageService: ImageServiceProtocol
     private var cancellable = Set<AnyCancellable>()
@@ -39,8 +39,11 @@ class TipListViewModel: ObservableObject {
     
     func delete(id: String) {
         if let imageUrl = tips.first(where: { tip in tip.id == id })?.image {
-            imageService.removeImage(url: imageUrl)
+            imageService.removeImage(url: imageUrl) { [self] in 
+                tipsService.deleteTip(id: id)
+            }
+        } else {
+            tipsService.deleteTip(id: id)
         }
-        tipsService.deleteTip(id: id)
     }
 }

@@ -35,10 +35,11 @@ class ImageService : ImageServiceProtocol {
             
         }
     }
-    func removeImage(url: String) {
+    func removeImage(url: String, completionHandler: @escaping () -> Void) {
         let storageRef = storage.reference(forURL: url)
         storageRef.delete { error in
-            print(error)
+            print((error?.localizedDescription ?? "Success") as String)
+            completionHandler()
         }
     }
 }
