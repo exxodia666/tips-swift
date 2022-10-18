@@ -34,8 +34,8 @@ struct TipComponent: View {
                         .font(.custom(Fonts.MontserratMedium.rawValue, size: 16))
                         .foregroundColor(.white)
                     Spacer()
-                    Image(Images.clock.rawValue)
-                        .padding(.horizontal, 10)
+//                    Image(Images.clock.rawValue)
+//                        .padding(.horizontal, 10)
                 }
                 .padding(.top, 15)
                 .padding(.bottom, 12)
@@ -48,7 +48,7 @@ struct TipComponent: View {
                     .lineLimit(2)
                     .padding(.bottom, 12)
                 
-                Text("Created at 1 Sept 2021")
+                Text("Created at \(tip.deadline.formatted())")
                     .font(.custom(Fonts.Montserrat.rawValue, size: 11))
                     .foregroundColor(.white)
                     .padding(.horizontal, 16)

@@ -31,7 +31,7 @@ struct FloatingButton: View {
                 x: 3,
                 y: 3)
         .sheet(isPresented: $isSheetShown) {
-            Form(showSheet: showSheet)
+            CreateTipView(showSheet: showSheet)
         }
     }
 }

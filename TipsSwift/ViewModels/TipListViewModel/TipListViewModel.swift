@@ -15,12 +15,15 @@ class TipListViewModel: ObservableObject {
     
     @Published var isLoading: Bool = false
     @Published var errorMessage: String?
-
+    
     private let tipsService: TipsServiceProtocol
+    private let imageService: ImageServiceProtocol
     private var cancellable = Set<AnyCancellable>()
     
-    init(tipsService: TipsServiceProtocol = TipsService.shared) {
+    init(tipsService: TipsServiceProtocol = TipsService.shared, imageService: ImageServiceProtocol = ImageService.shared) {
         self.tipsService = tipsService
+        self.imageService = imageService
+        
         tipsService.tips.sink { tips in
             self.tips = tips
         }.store(in: &cancellable)
@@ -35,6 +38,12 @@ class TipListViewModel: ObservableObject {
     }
     
     func delete(id: String) {
-        tipsService.deleteTip(id: id)
+        if let imageUrl = tips.first(where: { tip in tip.id == id })?.image {
+            imageService.removeImage(url: imageUrl) { [self] in 
+                tipsService.deleteTip(id: id)
+            }
+        } else {
+            tipsService.deleteTip(id: id)
+        }
     }
 }

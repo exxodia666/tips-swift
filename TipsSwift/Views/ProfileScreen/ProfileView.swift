@@ -20,8 +20,9 @@ struct ProfileView: View {
                     HeaderGoBack {
                         presentationMode.wrappedValue.dismiss()
                     }
-                    Spacer()
                     Text(viewModel.user?.email ?? "")
+                        .foregroundColor(.dark)
+                        .font(.custom(Fonts.BebasNeue.rawValue, size: 25.0))
                     ButtonUI(title: "Log Out", onPress: {
                         viewModel.logout()
                     }, disabled: false)

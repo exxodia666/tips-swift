@@ -1,13 +1,13 @@
 //
-//  EditForm.swift
+//  EditTipView.swift
 //  TipsSwift
 //
-//  Created by Alexey Olefir on 15.10.2022.
+//  Created by Alexey Olefir on 17.10.2022.
 //
 
 import SwiftUI
 
-struct EditForm: View {
+struct EditTipView: View {
     @StateObject private var viewModel: EditTipViewModel = EditTipViewModel()
     
     let showSheet: () -> Void
@@ -78,46 +78,34 @@ struct EditForm: View {
                     .strokeBorder(.white, lineWidth: 2)
                     .padding(.horizontal, 25)
             )
-            TextField(
-                "",
-                text: $viewModel.image
-            )
-                .placeholder(when: viewModel.image.isEmpty) {
-                    Text("Add Image (Optional)")
-                        .foregroundColor(.white)
-                        .font(.custom(Fonts.Montserrat.rawValue, size: 16))
-                }
-                .foregroundColor(.white)
-                .frame(
-                    height: 48.0,
-                    alignment: .center
-                )
-                .padding(.horizontal, 45)
-                .overlay(
-                    RoundedRectangle(cornerRadius: 15)
-                        .strokeBorder(.white, lineWidth: 2)
-                        .padding(.horizontal, 25)
-                )
-            //            TextField(
-            //                "",
-            //                text: $viewModel.deadline
-            //            )
-            //                .placeholder(when: createTipViewModel.deadline.isEmpty) {
-            //                    Text("Deadline (Optional)")
-            //                        .foregroundColor(.white)
-            //                        .font(.custom(Fonts.Montserrat.rawValue, size: 16))
-            //                }
-            //                .foregroundColor(.white)
-            //                .frame(
-            //                    height: 48.0,
-            //                    alignment: .center
-            //                )
-            //                .padding(.horizontal, 45)
-            //                .overlay(
-            //                    RoundedRectangle(cornerRadius: 15)
-            //                        .strokeBorder(.white, lineWidth: 2)
-            //                        .padding(.horizontal, 25)
-            //                )
+//            ZStack {
+//                AnyView(ImageView(withURL: viewModel.image)).overlay(
+//                    RoundedRectangle(cornerRadius: 0)
+//                        .strokeBorder(.white, lineWidth: 2)
+//                        .padding(.horizontal, 25)
+//                )
+//                VStack {
+//                    HStack {
+//                        Spacer()
+//                        Button {
+//                            self.viewModel.image = ""
+//                        } label: {
+//                            Image(systemName: "trash")
+//                                .frame(width: 30, height: 30, alignment: .center)
+//                                .font(.system(size: 16))
+//                                .foregroundColor(.white)
+//                                .background(
+//                                    Circle()
+//                                        .size(width: 30, height: 30)
+//                                        .foregroundColor(.red)
+//                                )
+//                                .padding(.trailing, 15)
+//                                .padding(.top, -2)
+//                        }
+//                    }
+//                    Spacer()
+//                }
+//            }
             Button(action: {
                 viewModel.updateTip()
                 showSheet()
@@ -148,8 +136,8 @@ struct EditForm: View {
     }
 }
 
-struct EditForm_Previews: PreviewProvider {
+struct EditTipView_Previews: PreviewProvider {
     static var previews: some View {
-        EditForm(showSheet: {})
+        EditTipView(showSheet: {})
     }
 }

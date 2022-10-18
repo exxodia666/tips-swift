@@ -14,8 +14,10 @@
 		96390D1428F9E10E00FE13E8 /* TipDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96390D1328F9E10E00FE13E8 /* TipDetailViewModel.swift */; };
 		96390D1728F9F47A00FE13E8 /* ImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96390D1628F9F47A00FE13E8 /* ImageView.swift */; };
 		96390D1928F9F48A00FE13E8 /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96390D1828F9F48A00FE13E8 /* ImageLoader.swift */; };
-		96390D1B28FB33DC00FE13E8 /* EditForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96390D1A28FB33DC00FE13E8 /* EditForm.swift */; };
 		96390D1E28FB441600FE13E8 /* EditTipViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96390D1D28FB441600FE13E8 /* EditTipViewModel.swift */; };
+		96390D2128FB578D00FE13E8 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96390D2028FB578D00FE13E8 /* ImagePicker.swift */; };
+		96390D2428FBFD2600FE13E8 /* ImageServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96390D2328FBFD2600FE13E8 /* ImageServiceProtocol.swift */; };
+		96390D2628FBFD4600FE13E8 /* ImageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96390D2528FBFD4600FE13E8 /* ImageService.swift */; };
 		964A3FF72895CAFE00B8AA64 /* TipsSwiftApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964A3FF62895CAFE00B8AA64 /* TipsSwiftApp.swift */; };
 		964A3FF92895CAFE00B8AA64 /* TipListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964A3FF82895CAFE00B8AA64 /* TipListView.swift */; };
 		964A3FFB2895CAFF00B8AA64 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 964A3FFA2895CAFF00B8AA64 /* Assets.xcassets */; };
@@ -23,6 +25,8 @@
 		964A40272896945200B8AA64 /* TipComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964A40262896945200B8AA64 /* TipComponent.swift */; };
 		964A402C2896ACB000B8AA64 /* TipModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964A402B2896ACB000B8AA64 /* TipModel.swift */; };
 		965974B228EE1A4E00971B41 /* SecureFieldUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 965974B128EE1A4E00971B41 /* SecureFieldUI.swift */; };
+		965EB60D28FDEB7900C5925B /* CreateTipView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 965EB60C28FDEB7900C5925B /* CreateTipView.swift */; };
+		965EB60F28FDEBEF00C5925B /* EditTipView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 965EB60E28FDEBEF00C5925B /* EditTipView.swift */; };
 		966B968C28EE2628002E482D /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 966B968B28EE2628002E482D /* FirebaseAuth */; };
 		966B968E28EE2628002E482D /* FirebaseAuthCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = 966B968D28EE2628002E482D /* FirebaseAuthCombine-Community */; };
 		966B969028EE2628002E482D /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 966B968F28EE2628002E482D /* FirebaseFirestore */; };
@@ -55,7 +59,6 @@
 		96DE61FB28F377A800B56EE3 /* SignInViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96DE61FA28F377A800B56EE3 /* SignInViewModel.swift */; };
 		96F3847428A017D20027C434 /* TipDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96F3847328A017D20027C434 /* TipDetailsView.swift */; };
 		96F3847628A018150027C434 /* HeaderGoBackWithButtons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96F3847528A018150027C434 /* HeaderGoBackWithButtons.swift */; };
-		96F3847828A04F6F0027C434 /* Form.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96F3847728A04F6F0027C434 /* Form.swift */; };
 		96F3847A28A0544F0027C434 /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96F3847928A0544F0027C434 /* Fonts.swift */; };
 		96FBA84628F6014A001014CE /* TipsServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96FBA84528F6014A001014CE /* TipsServiceProtocol.swift */; };
 		96FBA84828F60422001014CE /* TipsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96FBA84728F60422001014CE /* TipsService.swift */; };
@@ -70,8 +73,10 @@
 		96390D1328F9E10E00FE13E8 /* TipDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipDetailViewModel.swift; sourceTree = "<group>"; };
 		96390D1628F9F47A00FE13E8 /* ImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageView.swift; sourceTree = "<group>"; };
 		96390D1828F9F48A00FE13E8 /* ImageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoader.swift; sourceTree = "<group>"; };
-		96390D1A28FB33DC00FE13E8 /* EditForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditForm.swift; sourceTree = "<group>"; };
 		96390D1D28FB441600FE13E8 /* EditTipViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditTipViewModel.swift; sourceTree = "<group>"; };
+		96390D2028FB578D00FE13E8 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
+		96390D2328FBFD2600FE13E8 /* ImageServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageServiceProtocol.swift; sourceTree = "<group>"; };
+		96390D2528FBFD4600FE13E8 /* ImageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageService.swift; sourceTree = "<group>"; };
 		964A3FF32895CAFE00B8AA64 /* TipsSwift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TipsSwift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		964A3FF62895CAFE00B8AA64 /* TipsSwiftApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipsSwiftApp.swift; sourceTree = "<group>"; };
 		964A3FF82895CAFE00B8AA64 /* TipListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipListView.swift; sourceTree = "<group>"; };
@@ -80,6 +85,8 @@
 		964A40262896945200B8AA64 /* TipComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipComponent.swift; sourceTree = "<group>"; };
 		964A402B2896ACB000B8AA64 /* TipModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipModel.swift; sourceTree = "<group>"; };
 		965974B128EE1A4E00971B41 /* SecureFieldUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecureFieldUI.swift; sourceTree = "<group>"; };
+		965EB60C28FDEB7900C5925B /* CreateTipView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateTipView.swift; sourceTree = "<group>"; };
+		965EB60E28FDEBEF00C5925B /* EditTipView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditTipView.swift; sourceTree = "<group>"; };
 		9677B2C128F188D200497D67 /* UserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewModel.swift; sourceTree = "<group>"; };
 		9677B2C328F189B700497D67 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		9677B2C528F1BB7100497D67 /* HeaderGoBack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderGoBack.swift; sourceTree = "<group>"; };
@@ -105,7 +112,6 @@
 		96DE61FA28F377A800B56EE3 /* SignInViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewModel.swift; sourceTree = "<group>"; };
 		96F3847328A017D20027C434 /* TipDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipDetailsView.swift; sourceTree = "<group>"; };
 		96F3847528A018150027C434 /* HeaderGoBackWithButtons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderGoBackWithButtons.swift; sourceTree = "<group>"; };
-		96F3847728A04F6F0027C434 /* Form.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Form.swift; sourceTree = "<group>"; };
 		96F3847928A0544F0027C434 /* Fonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fonts.swift; sourceTree = "<group>"; };
 		96FBA84528F6014A001014CE /* TipsServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipsServiceProtocol.swift; sourceTree = "<group>"; };
 		96FBA84728F60422001014CE /* TipsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipsService.swift; sourceTree = "<group>"; };
@@ -226,6 +232,23 @@
 			path = EditTipViewModel;
 			sourceTree = "<group>";
 		};
+		96390D1F28FB577900FE13E8 /* ImagePicker */ = {
+			isa = PBXGroup;
+			children = (
+				96390D2028FB578D00FE13E8 /* ImagePicker.swift */,
+			);
+			path = ImagePicker;
+			sourceTree = "<group>";
+		};
+		96390D2228FBFD0A00FE13E8 /* ImageService */ = {
+			isa = PBXGroup;
+			children = (
+				96390D2328FBFD2600FE13E8 /* ImageServiceProtocol.swift */,
+				96390D2528FBFD4600FE13E8 /* ImageService.swift */,
+			);
+			path = ImageService;
+			sourceTree = "<group>";
+		};
 		964A3FEA2895CAFD00B8AA64 = {
 			isa = PBXGroup;
 			children = (
@@ -273,19 +296,34 @@
 		964A402828969B8300B8AA64 /* components */ = {
 			isa = PBXGroup;
 			children = (
+				96390D1F28FB577900FE13E8 /* ImagePicker */,
 				96390D1528F9F45500FE13E8 /* ImageView */,
 				964A40262896945200B8AA64 /* TipComponent.swift */,
 				96DB4B03289F001C00571C6C /* Header.swift */,
 				96F3847528A018150027C434 /* HeaderGoBackWithButtons.swift */,
-				96F3847728A04F6F0027C434 /* Form.swift */,
 				9693F35128A19E0100434B21 /* ModalButton.swift */,
 				960B29C128AD7DE00078DE14 /* ButtonUI.swift */,
 				960B29C328AD7FE50078DE14 /* TextFieldUI.swift */,
 				965974B128EE1A4E00971B41 /* SecureFieldUI.swift */,
 				9677B2C528F1BB7100497D67 /* HeaderGoBack.swift */,
-				96390D1A28FB33DC00FE13E8 /* EditForm.swift */,
 			);
 			path = components;
+			sourceTree = "<group>";
+		};
+		965EB60928FDEB4100C5925B /* EditTipView */ = {
+			isa = PBXGroup;
+			children = (
+				965EB60E28FDEBEF00C5925B /* EditTipView.swift */,
+			);
+			path = EditTipView;
+			sourceTree = "<group>";
+		};
+		965EB60B28FDEB5B00C5925B /* CreateTipView */ = {
+			isa = PBXGroup;
+			children = (
+				965EB60C28FDEB7900C5925B /* CreateTipView.swift */,
+			);
+			path = CreateTipView;
 			sourceTree = "<group>";
 		};
 		9677B2C028F188B700497D67 /* UserViewModel */ = {
@@ -326,6 +364,7 @@
 		96ABDFA428A96C02003E6D84 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				96390D2228FBFD0A00FE13E8 /* ImageService */,
 				96FBA84428F60127001014CE /* TipsService */,
 				96A24D2128F0BC4F0036F9DD /* AuthService */,
 				96ABDFA528A96C81003E6D84 /* TipListService.swift */,
@@ -388,6 +427,8 @@
 		96F3847228A017490027C434 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				965EB60B28FDEB5B00C5925B /* CreateTipView */,
+				965EB60928FDEB4100C5925B /* EditTipView */,
 				96DE61F628F374AE00B56EE3 /* ProfileScreen */,
 				96BA542D28AC1C45003D3926 /* SignUpView */,
 				96BA542C28AC1C2F003D3926 /* SingInView */,
@@ -513,6 +554,7 @@
 				9614332C28A58835005A4E15 /* TipListViewModel.swift in Sources */,
 				965974B228EE1A4E00971B41 /* SecureFieldUI.swift in Sources */,
 				96F3847428A017D20027C434 /* TipDetailsView.swift in Sources */,
+				96390D2128FB578D00FE13E8 /* ImagePicker.swift in Sources */,
 				9677B2C228F188D200497D67 /* UserViewModel.swift in Sources */,
 				964A3FF92895CAFE00B8AA64 /* TipListView.swift in Sources */,
 				96DB4B04289F001C00571C6C /* Header.swift in Sources */,
@@ -524,22 +566,24 @@
 				9614333328A59C51005A4E15 /* TipsDataModel.xcdatamodeld in Sources */,
 				96390D1928F9F48A00FE13E8 /* ImageLoader.swift in Sources */,
 				96A0A17D28F4C0EA00DF8F65 /* ServiceProtocol.swift in Sources */,
-				96390D1B28FB33DC00FE13E8 /* EditForm.swift in Sources */,
 				96390D1E28FB441600FE13E8 /* EditTipViewModel.swift in Sources */,
+				965EB60D28FDEB7900C5925B /* CreateTipView.swift in Sources */,
 				9693F35228A19E0100434B21 /* ModalButton.swift in Sources */,
 				96A24D2328F0BC760036F9DD /* FirebaseAuthService.swift in Sources */,
 				964A3FF72895CAFE00B8AA64 /* TipsSwiftApp.swift in Sources */,
-				96F3847828A04F6F0027C434 /* Form.swift in Sources */,
 				96DE61F828F374FB00B56EE3 /* ProfileView.swift in Sources */,
+				96390D2428FBFD2600FE13E8 /* ImageServiceProtocol.swift in Sources */,
 				9693F35528A1A11000434B21 /* Color.swift in Sources */,
 				960B29C428AD7FE50078DE14 /* TextFieldUI.swift in Sources */,
 				964A402C2896ACB000B8AA64 /* TipModel.swift in Sources */,
 				96BA542F28AC1C5F003D3926 /* SignInView.swift in Sources */,
+				96390D2628FBFD4600FE13E8 /* ImageService.swift in Sources */,
 				96F3847628A018150027C434 /* HeaderGoBackWithButtons.swift in Sources */,
 				96BA542F28AC1C5F003D3926 /* SignInView.swift in Sources */,
 				96F3847628A018150027C434 /* HeaderGoBackWithButtons.swift in Sources */,
 				96BA542F28AC1C5F003D3926 /* SignInView.swift in Sources */,
 				96F3847628A018150027C434 /* HeaderGoBackWithButtons.swift in Sources */,
+				965EB60F28FDEBEF00C5925B /* EditTipView.swift in Sources */,
 				96FBA84628F6014A001014CE /* TipsServiceProtocol.swift in Sources */,
 				96A24D2528F0BD700036F9DD /* AuthServiceProtocol.swift in Sources */,
 				96C1503328A2E3FE005E5B47 /* FloatingButton.swift in Sources */,
